@@ -400,6 +400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MRTK XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 3712792914886690938, guid: 4d7e2f87fefe0ba468719b15288b46e7,
+        type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -408,6 +413,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 754605147}
+    - targetCorrespondingSourceObject: {fileID: 2351505566771328562, guid: 4d7e2f87fefe0ba468719b15288b46e7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2063375851}
   m_SourcePrefab: {fileID: 100100000, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
 --- !u!1 &754605144 stripped
 GameObject:
@@ -430,7 +439,7 @@ MonoBehaviour:
   m_Camera: {fileID: 0}
   m_OriginBaseGameObject: {fileID: 754605144}
   m_CameraFloorOffsetObject: {fileID: 0}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.1176
 --- !u!4 &754605153 stripped
 Transform:
@@ -501,15 +510,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22966492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000000029802322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.48134
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
       propertyPath: m_LocalRotation.w
@@ -550,11 +559,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100012, guid: 7233cd378925e9f4da18ce0536bc0443,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1854010576}
-    - targetCorrespondingSourceObject: {fileID: 100012, guid: 7233cd378925e9f4da18ce0536bc0443,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1854010577}
+      addedObject: {fileID: 1854010580}
   m_SourcePrefab: {fileID: 100100000, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
 --- !u!1 &887370522
 GameObject:
@@ -764,7 +769,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 837943662}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1854010576
+--- !u!114 &1854010580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -773,56 +778,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 1854010572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3986155c7a728454f8bbbabd2e274601, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a55698cd610352449634a26dee63e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftInteractor: {fileID: 0}
-  rightInteractor: {fileID: 0}
-  trackedTargetType: 0
-  trackedHandedness: 3
-  trackedHandJoint: 0
-  transformOverride: {fileID: 0}
-  additionalOffset: {x: 0, y: 0, z: 0}
-  additionalRotation: {x: 0, y: 0, z: 0}
-  updateSolvers: 1
---- !u!114 &1854010577
+  player: {fileID: 2063375845}
+  speed: 10
+  rotationSpeed: 5
+--- !u!1 &2063375844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2351505566771328562, guid: 4d7e2f87fefe0ba468719b15288b46e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 754605143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2063375845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2351505566771328526, guid: 4d7e2f87fefe0ba468719b15288b46e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 754605143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2063375851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854010572}
+  m_GameObject: {fileID: 2063375844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24445032f6e7f2449a22209821c86607, type: 3}
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateLinkedTransform: 0
-  moveLerpTime: 0.1
-  rotateLerpTime: 0.1
-  scaleLerpTime: 0
-  maintainScaleOnInitialization: 1
-  smoothing: 1
-  lifetime: 0
-  magneticSurfaces:
-  - serializedVersion: 2
-    m_Bits: 4294967291
-  maxRaycastDistance: 50
-  closestDistance: 0.5
-  surfaceNormalOffset: 0.5
-  surfaceRayOffset: 0
-  raycastMode: 0
-  boxRaysPerEdge: 3
-  orthographicBoxCast: 0
-  maximumNormalVariance: 0.5
-  sphereSize: 1
-  volumeCastSizeOverride: 0
-  useLinkedAltScaleOverride: 0
-  currentRaycastDirectionMode: 0
-  orientationMode: 1
-  orientationBlend: 0.65
-  keepOrientationVertical: 1
-  debugEnabled: 0
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

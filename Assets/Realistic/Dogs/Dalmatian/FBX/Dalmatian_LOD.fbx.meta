@@ -1,135 +1,389 @@
 fileFormatVersion: 2
 guid: 356b82033a488c14b8ed1996f8e7a7e9
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Arm_Dog
-    100002: claws_b.L
-    100004: claws_b.R
-    100006: claws_f.L
-    100008: claws_f.R
-    100010: //RootNode
-    100012: Dalmatian_LOD0
-    100014: Dalmatian_LOD1
-    100016: Dalmatian_LOD2
-    100018: Dalmatian_LOD3
-    100020: Ear.L
-    100022: Ear.R
-    100024: eye.L
-    100026: eye.R
-    100028: foot_b.L
-    100030: foot_b.R
-    100032: foot_f.L
-    100034: foot_f.R
-    100036: head
-    100038: Helper_foot_b.L
-    100040: Helper_foot_b.R
-    100042: Helper_shin_f.L
-    100044: Helper_shin_f.R
-    100046: hip_b.L
-    100048: hip_b.R
-    100050: hip_f.L
-    100052: hip_f.R
-    100054: leg_b.L
-    100056: leg_b.R
-    100058: leg_f.L
-    100060: leg_f.R
-    100062: mouth
-    100064: neck
-    100066: nose
-    100068: Root_bone
-    100070: shin_b.L
-    100072: shin_b.R
-    100074: shin_f.L
-    100076: shin_f.R
-    100078: Spine_01
-    100080: Spine_02
-    100082: Spine_03
-    100084: Spine_04
-    100086: Spine_05
-    100088: Spine_base
-    100090: tail_01
-    100092: tail_02
-    100094: tail_03
-    100096: tail_04
-    100098: tail_05
-    100100: thigh_b.L
-    100102: thigh_b.R
-    100104: thigh_f.L
-    100106: thigh_f.R
-    100108: tongue_1
-    100110: tongue_2
-    100112: tongue_3
-    100114: tongue_4
-    400000: Arm_Dog
-    400002: claws_b.L
-    400004: claws_b.R
-    400006: claws_f.L
-    400008: claws_f.R
-    400010: //RootNode
-    400012: Dalmatian_LOD0
-    400014: Dalmatian_LOD1
-    400016: Dalmatian_LOD2
-    400018: Dalmatian_LOD3
-    400020: Ear.L
-    400022: Ear.R
-    400024: eye.L
-    400026: eye.R
-    400028: foot_b.L
-    400030: foot_b.R
-    400032: foot_f.L
-    400034: foot_f.R
-    400036: head
-    400038: Helper_foot_b.L
-    400040: Helper_foot_b.R
-    400042: Helper_shin_f.L
-    400044: Helper_shin_f.R
-    400046: hip_b.L
-    400048: hip_b.R
-    400050: hip_f.L
-    400052: hip_f.R
-    400054: leg_b.L
-    400056: leg_b.R
-    400058: leg_f.L
-    400060: leg_f.R
-    400062: mouth
-    400064: neck
-    400066: nose
-    400068: Root_bone
-    400070: shin_b.L
-    400072: shin_b.R
-    400074: shin_f.L
-    400076: shin_f.R
-    400078: Spine_01
-    400080: Spine_02
-    400082: Spine_03
-    400084: Spine_04
-    400086: Spine_05
-    400088: Spine_base
-    400090: tail_01
-    400092: tail_02
-    400094: tail_03
-    400096: tail_04
-    400098: tail_05
-    400100: thigh_b.L
-    400102: thigh_b.R
-    400104: thigh_f.L
-    400106: thigh_f.R
-    400108: tongue_1
-    400110: tongue_2
-    400112: tongue_3
-    400114: tongue_4
-    2100000: Dalmatian
-    4300000: Dalmatian_LOD3
-    4300002: Dalmatian_LOD2
-    4300004: Dalmatian_LOD1
-    4300006: Dalmatian_LOD0
-    9500000: //RootNode
-    13700000: Dalmatian_LOD0
-    13700002: Dalmatian_LOD1
-    13700004: Dalmatian_LOD2
-    13700006: Dalmatian_LOD3
-    20500000: //RootNode
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Arm_Dog
+  - first:
+      1: 100002
+    second: claws_b.L
+  - first:
+      1: 100004
+    second: claws_b.R
+  - first:
+      1: 100006
+    second: claws_f.L
+  - first:
+      1: 100008
+    second: claws_f.R
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: Dalmatian_LOD0
+  - first:
+      1: 100014
+    second: Dalmatian_LOD1
+  - first:
+      1: 100016
+    second: Dalmatian_LOD2
+  - first:
+      1: 100018
+    second: Dalmatian_LOD3
+  - first:
+      1: 100020
+    second: Ear.L
+  - first:
+      1: 100022
+    second: Ear.R
+  - first:
+      1: 100024
+    second: eye.L
+  - first:
+      1: 100026
+    second: eye.R
+  - first:
+      1: 100028
+    second: foot_b.L
+  - first:
+      1: 100030
+    second: foot_b.R
+  - first:
+      1: 100032
+    second: foot_f.L
+  - first:
+      1: 100034
+    second: foot_f.R
+  - first:
+      1: 100036
+    second: head
+  - first:
+      1: 100038
+    second: Helper_foot_b.L
+  - first:
+      1: 100040
+    second: Helper_foot_b.R
+  - first:
+      1: 100042
+    second: Helper_shin_f.L
+  - first:
+      1: 100044
+    second: Helper_shin_f.R
+  - first:
+      1: 100046
+    second: hip_b.L
+  - first:
+      1: 100048
+    second: hip_b.R
+  - first:
+      1: 100050
+    second: hip_f.L
+  - first:
+      1: 100052
+    second: hip_f.R
+  - first:
+      1: 100054
+    second: leg_b.L
+  - first:
+      1: 100056
+    second: leg_b.R
+  - first:
+      1: 100058
+    second: leg_f.L
+  - first:
+      1: 100060
+    second: leg_f.R
+  - first:
+      1: 100062
+    second: mouth
+  - first:
+      1: 100064
+    second: neck
+  - first:
+      1: 100066
+    second: nose
+  - first:
+      1: 100068
+    second: Root_bone
+  - first:
+      1: 100070
+    second: shin_b.L
+  - first:
+      1: 100072
+    second: shin_b.R
+  - first:
+      1: 100074
+    second: shin_f.L
+  - first:
+      1: 100076
+    second: shin_f.R
+  - first:
+      1: 100078
+    second: Spine_01
+  - first:
+      1: 100080
+    second: Spine_02
+  - first:
+      1: 100082
+    second: Spine_03
+  - first:
+      1: 100084
+    second: Spine_04
+  - first:
+      1: 100086
+    second: Spine_05
+  - first:
+      1: 100088
+    second: Spine_base
+  - first:
+      1: 100090
+    second: tail_01
+  - first:
+      1: 100092
+    second: tail_02
+  - first:
+      1: 100094
+    second: tail_03
+  - first:
+      1: 100096
+    second: tail_04
+  - first:
+      1: 100098
+    second: tail_05
+  - first:
+      1: 100100
+    second: thigh_b.L
+  - first:
+      1: 100102
+    second: thigh_b.R
+  - first:
+      1: 100104
+    second: thigh_f.L
+  - first:
+      1: 100106
+    second: thigh_f.R
+  - first:
+      1: 100108
+    second: tongue_1
+  - first:
+      1: 100110
+    second: tongue_2
+  - first:
+      1: 100112
+    second: tongue_3
+  - first:
+      1: 100114
+    second: tongue_4
+  - first:
+      4: 400000
+    second: Arm_Dog
+  - first:
+      4: 400002
+    second: claws_b.L
+  - first:
+      4: 400004
+    second: claws_b.R
+  - first:
+      4: 400006
+    second: claws_f.L
+  - first:
+      4: 400008
+    second: claws_f.R
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: Dalmatian_LOD0
+  - first:
+      4: 400014
+    second: Dalmatian_LOD1
+  - first:
+      4: 400016
+    second: Dalmatian_LOD2
+  - first:
+      4: 400018
+    second: Dalmatian_LOD3
+  - first:
+      4: 400020
+    second: Ear.L
+  - first:
+      4: 400022
+    second: Ear.R
+  - first:
+      4: 400024
+    second: eye.L
+  - first:
+      4: 400026
+    second: eye.R
+  - first:
+      4: 400028
+    second: foot_b.L
+  - first:
+      4: 400030
+    second: foot_b.R
+  - first:
+      4: 400032
+    second: foot_f.L
+  - first:
+      4: 400034
+    second: foot_f.R
+  - first:
+      4: 400036
+    second: head
+  - first:
+      4: 400038
+    second: Helper_foot_b.L
+  - first:
+      4: 400040
+    second: Helper_foot_b.R
+  - first:
+      4: 400042
+    second: Helper_shin_f.L
+  - first:
+      4: 400044
+    second: Helper_shin_f.R
+  - first:
+      4: 400046
+    second: hip_b.L
+  - first:
+      4: 400048
+    second: hip_b.R
+  - first:
+      4: 400050
+    second: hip_f.L
+  - first:
+      4: 400052
+    second: hip_f.R
+  - first:
+      4: 400054
+    second: leg_b.L
+  - first:
+      4: 400056
+    second: leg_b.R
+  - first:
+      4: 400058
+    second: leg_f.L
+  - first:
+      4: 400060
+    second: leg_f.R
+  - first:
+      4: 400062
+    second: mouth
+  - first:
+      4: 400064
+    second: neck
+  - first:
+      4: 400066
+    second: nose
+  - first:
+      4: 400068
+    second: Root_bone
+  - first:
+      4: 400070
+    second: shin_b.L
+  - first:
+      4: 400072
+    second: shin_b.R
+  - first:
+      4: 400074
+    second: shin_f.L
+  - first:
+      4: 400076
+    second: shin_f.R
+  - first:
+      4: 400078
+    second: Spine_01
+  - first:
+      4: 400080
+    second: Spine_02
+  - first:
+      4: 400082
+    second: Spine_03
+  - first:
+      4: 400084
+    second: Spine_04
+  - first:
+      4: 400086
+    second: Spine_05
+  - first:
+      4: 400088
+    second: Spine_base
+  - first:
+      4: 400090
+    second: tail_01
+  - first:
+      4: 400092
+    second: tail_02
+  - first:
+      4: 400094
+    second: tail_03
+  - first:
+      4: 400096
+    second: tail_04
+  - first:
+      4: 400098
+    second: tail_05
+  - first:
+      4: 400100
+    second: thigh_b.L
+  - first:
+      4: 400102
+    second: thigh_b.R
+  - first:
+      4: 400104
+    second: thigh_f.L
+  - first:
+      4: 400106
+    second: thigh_f.R
+  - first:
+      4: 400108
+    second: tongue_1
+  - first:
+      4: 400110
+    second: tongue_2
+  - first:
+      4: 400112
+    second: tongue_3
+  - first:
+      4: 400114
+    second: tongue_4
+  - first:
+      21: 2100000
+    second: Dalmatian
+  - first:
+      43: 4300000
+    second: Dalmatian_LOD3
+  - first:
+      43: 4300002
+    second: Dalmatian_LOD2
+  - first:
+      43: 4300004
+    second: Dalmatian_LOD1
+  - first:
+      43: 4300006
+    second: Dalmatian_LOD0
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Dalmatian_LOD0
+  - first:
+      137: 13700002
+    second: Dalmatian_LOD1
+  - first:
+      137: 13700004
+    second: Dalmatian_LOD2
+  - first:
+      137: 13700006
+    second: Dalmatian_LOD3
+  - first:
+      205: 20500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -137,7 +391,7 @@ ModelImporter:
       name: Dalmatian
     second: {fileID: 2100000, guid: aeb3700ffd2b8df43aaeb553ab4da0c4, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -146,6 +400,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -155,7 +410,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -174,25 +429,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 0
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: 1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -201,10 +467,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -214,13 +480,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: Root_bone
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
