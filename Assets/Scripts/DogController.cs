@@ -19,6 +19,13 @@ public class DogController : MonoBehaviour
     private Vector3 previousPlayerPosition;
     private float lookDuration = 0f; // Duration in seconds the player has been looking in a direction
     private const float lookDurationThreshold = 6f;
+
+
+
+    public float slowingDistance = 2f; // Distance at which the dog starts slowing down
+    public float arrivalRadius = 0.1f; // Radius within which the dog considers itself arrived
+
+
     private void Awake()
     {
         // Find the player GameObject by tag
@@ -32,19 +39,23 @@ public class DogController : MonoBehaviour
             Debug.LogError("Player GameObject with tag '" + dog + "' not found!");
         }
         previousPlayerPosition = player.position;
-        Vector3 targetPosition1 = player.position + player.right * offset.x + player.forward * offset.z;
+        // Vector3 targetPosition1 = player.position + player.right * offset.x + player.forward * offset.z;
 
-        // Move the dog towards the target position
-        dog.transform.position = Vector3.MoveTowards(dog.transform.position, targetPosition1, speed );
+        // // Move the dog towards the target position
+        // dog.transform.position = Vector3.MoveTowards(dog.transform.position, targetPosition1, speed );
                
     }
 
 
     private void Update()
     {
+        if (player == null)
+        {
+            Debug.LogError("Player reference is not set in DogController!");
+            return;
+        }
 
-        // Calculate the distance between the player and the dog
-        // Calculate the difference between current and previous player position
+
         float distanceDifference = Vector3.Distance(player.position, previousPlayerPosition);
 
         // Update previous player position for the next frame
@@ -62,74 +73,35 @@ public class DogController : MonoBehaviour
             animator.SetBool("Run", false); // Sit animation
         }
 
+        // Calculate the target position for the dog (with an offset if needed)
+        //Vector3 targetPosition = player.position;
+        Vector3 targetPosition = player.position + player.forward * offset.z + player.right * offset.x;
 
-    //    dog.transform.position = new Vector3(player.transform.position.x + -offset.x, player.transform.position.y - + offset.y,player.transform.position.z + offset.z);
+        // Calculate the direction to the target
+        Vector3 directionToTarget = targetPosition - transform.position;
+        float distanceToTarget = directionToTarget.magnitude;
 
-    //     //Calculate the dog's target position based on the player's position and offset
-    //     Vector3 targetPosition1 = player.position + player.right * offset.x + player.forward * offset.z;
-
-    //     // Move the dog towards the target position
-    //     dog.transform.position = Vector3.MoveTowards(dog.transform.position, targetPosition1, speed * Time.deltaTime);
-
-    //     //Calculate the direction from the dog to the player
-    //     Vector3 directionToPlayer =  dog.transform.position- player.position ;
-
-    //     //Make the dog face the same direction as the player
-    //     if (directionToPlayer != Vector3.zero)
-    //     {
-    //         Quaternion targetRotation = Quaternion.LookRotation(-(directionToPlayer + Vector3.up * 0.2f));
-    //         dog.transform.rotation = Quaternion.RotateTowards(dog.transform.rotation, targetRotation, speed * Time.deltaTime);
-        
-    //     }
-
-
-        Vector3 directionToDog = dog.transform.position - player.position;
-
-        if (Vector3.Dot(player.forward, directionToDog) > 0.01f)
+        // Check if the dog has arrived at the target
+        if (distanceToTarget <= arrivalRadius)
         {
-
-            lookDuration += Time.deltaTime;
-            Debug.Log("not looking dog");
-        }
-        else
-        {
-            lookDuration = 0f;
-            Debug.Log("looking");
+            // Dog has arrived, no need to move
+            return;
         }
 
-        // Update dog's target position if player has looked in a direction for more than the threshold
+        // Calculate the desired velocity using arrive behavior
+        float desiredSpeed = Mathf.Min(speed, speed * (distanceToTarget / slowingDistance));
+        Vector3 desiredVelocity = directionToTarget.normalized * desiredSpeed;
 
-        if (lookDuration >= lookDurationThreshold)
-        {
+        // Calculate steering force
+        Vector3 steeringForce = desiredVelocity - GetComponent<Rigidbody>().velocity;
 
+        // Apply steering force to adjust the dog's velocity
+        GetComponent<Rigidbody>().velocity += steeringForce * Time.deltaTime;
 
-            Vector3 targetPosition = player.position + player.forward * offset.z + player.right * offset.x;
-            // Move the dog towards the target position
-            dog.transform.position = Vector3.MoveTowards(dog.transform.position, targetPosition, speed * Time.deltaTime);
-
-
-            // Make the dog face the same direction as the player
-            Vector3 directionToPlayer =  dog.transform.position- player.position;
-
-
-
-            if (directionToPlayer != Vector3.zero)
-            {
-                Debug.Log("whats happening here "+ directionToPlayer);
-                Quaternion targetRotation = Quaternion.LookRotation(-(directionToPlayer + Vector3.up * 0.2f));
-                dog.transform.rotation = Quaternion.RotateTowards(dog.transform.rotation, targetRotation, speed * Time.deltaTime);
-            }
-
-            
-
-
-
-            //lookDuration = 0f;
-        }
-
-
-
-
+        // Update dog's position based on its velocity
+        transform.position += GetComponent<Rigidbody>().velocity * Time.deltaTime;
     }
+
+
 
 }
