@@ -23,7 +23,8 @@ public class DogController : MonoBehaviour
 
 
     public float slowingDistance = 2f; // Distance at which the dog starts slowing down
-    public float arrivalRadius = 0.1f; // Radius within which the dog considers itself arrived
+    public float arrivalRadius = 0.1f; 
+    public float rotationSpeed = 2f;// Radius within which the dog considers itself arrived
 
 
     private void Awake()
@@ -75,7 +76,11 @@ public class DogController : MonoBehaviour
 
         // Calculate the target position for the dog (with an offset if needed)
         //Vector3 targetPosition = player.position;
+        //Vector3 targetPosition = player.position + player.forward * offset.z + player.right * offset.x;
+
+                // Calculate the target position for the dog (with an offset if needed)
         Vector3 targetPosition = player.position + player.forward * offset.z + player.right * offset.x;
+        targetPosition.y = transform.position.y; // Preserve the y-axis
 
         // Calculate the direction to the target
         Vector3 directionToTarget = targetPosition - transform.position;
@@ -100,8 +105,26 @@ public class DogController : MonoBehaviour
 
         // Update dog's position based on its velocity
         transform.position += GetComponent<Rigidbody>().velocity * Time.deltaTime;
+
+        // Rotate the dog to face the direction it's moving
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+
+
+        if (velocity.magnitude > 0.1f) // Adjust the threshold as needed
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(velocity.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed); // Adjust the rotation speed factor
+
+            // Set the run and rotate animations
+            animator.SetBool("Run", true);
+            //animator.SetBool("Rotate", true);
+        }
+        else
+        {
+            // Set the idle animation
+            animator.SetBool("Run", false);
+            //animator.SetBool("Rotate", false);
+        }
     }
-
-
 
 }
