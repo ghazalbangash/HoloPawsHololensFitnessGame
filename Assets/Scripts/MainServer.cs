@@ -6,6 +6,7 @@ using System;
 
 using UnityEngine.UI;
 
+
 #if !UNITY_EDITOR
     using Windows.Networking;
     using Windows.Networking.Sockets;
@@ -16,10 +17,16 @@ using UnityEngine.UI;
 public class MainServer : MonoBehaviour
 {
     public String _input = "Waiting";
+    public String data = "test";
 
-    public TMP_Text logging;
+    public TMP_Text HeartRate;
+    public TMP_Text Steps;
+
+
+    public float speed = 5f; // Speed at which the dog follows the player
     
-    //public TMP_Text logging = textobj.GetComponent<TextMeshPro>();
+    public TMP_Text logging;
+
 
 #if !UNITY_EDITOR
         StreamSocket socket;
@@ -45,6 +52,10 @@ public class MainServer : MonoBehaviour
         Listener_Start();
 #endif
     }
+
+
+
+
 
 #if !UNITY_EDITOR
     private async void Listener_Start()
@@ -87,6 +98,7 @@ public class MainServer : MonoBehaviour
                     await dr.LoadAsync(5024);
                     string response = dr.ReadString(dr.UnconsumedBufferLength);
                     Debug.Log(response);
+                    data = response;
 
                     
 
@@ -99,7 +111,11 @@ public class MainServer : MonoBehaviour
 
     }
 
-    
-
 #endif
+
+
+    // private void Update(){
+
+    //     Debug.Log("here is the canvas position"+data );
+    // }
 }

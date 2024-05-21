@@ -1,219 +1,641 @@
 fileFormatVersion: 2
 guid: 408071e2508fc0845842cb25b3586bf5
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Arm_Dog
-    100002: claws_b.L
-    100004: claws_b.R
-    100006: claws_f.L
-    100008: claws_f.R
-    100010: Dalmatian
-    100012: //RootNode
-    100014: Ear.L
-    100016: Ear.R
-    100018: eye.L
-    100020: eye.R
-    100022: foot_b.L
-    100024: foot_b.R
-    100026: foot_f.L
-    100028: foot_f.R
-    100030: head
-    100032: Helper_foot_b.L
-    100034: Helper_foot_b.R
-    100036: Helper_shin_f.L
-    100038: Helper_shin_f.R
-    100040: hip_b.L
-    100042: hip_b.R
-    100044: hip_f.L
-    100046: hip_f.R
-    100048: leg_b.L
-    100050: leg_b.R
-    100052: leg_f.L
-    100054: leg_f.R
-    100056: mouth
-    100058: neck
-    100060: nose
-    100062: Root_bone
-    100064: shin_b.L
-    100066: shin_b.R
-    100068: shin_f.L
-    100070: shin_f.R
-    100072: Spine_01
-    100074: Spine_02
-    100076: Spine_03
-    100078: Spine_04
-    100080: Spine_05
-    100082: Spine_base
-    100084: tail_01
-    100086: tail_02
-    100088: tail_03
-    100090: tail_04
-    100092: tail_05
-    100094: thigh_b.L
-    100096: thigh_b.R
-    100098: thigh_f.L
-    100100: thigh_f.R
-    100102: tongue_1
-    100104: tongue_2
-    100106: tongue_3
-    100108: tongue_4
-    400000: Arm_Dog
-    400002: claws_b.L
-    400004: claws_b.R
-    400006: claws_f.L
-    400008: claws_f.R
-    400010: Dalmatian
-    400012: //RootNode
-    400014: Ear.L
-    400016: Ear.R
-    400018: eye.L
-    400020: eye.R
-    400022: foot_b.L
-    400024: foot_b.R
-    400026: foot_f.L
-    400028: foot_f.R
-    400030: head
-    400032: Helper_foot_b.L
-    400034: Helper_foot_b.R
-    400036: Helper_shin_f.L
-    400038: Helper_shin_f.R
-    400040: hip_b.L
-    400042: hip_b.R
-    400044: hip_f.L
-    400046: hip_f.R
-    400048: leg_b.L
-    400050: leg_b.R
-    400052: leg_f.L
-    400054: leg_f.R
-    400056: mouth
-    400058: neck
-    400060: nose
-    400062: Root_bone
-    400064: shin_b.L
-    400066: shin_b.R
-    400068: shin_f.L
-    400070: shin_f.R
-    400072: Spine_01
-    400074: Spine_02
-    400076: Spine_03
-    400078: Spine_04
-    400080: Spine_05
-    400082: Spine_base
-    400084: tail_01
-    400086: tail_02
-    400088: tail_03
-    400090: tail_04
-    400092: tail_05
-    400094: thigh_b.L
-    400096: thigh_b.R
-    400098: thigh_f.L
-    400100: thigh_f.R
-    400102: tongue_1
-    400104: tongue_2
-    400106: tongue_3
-    400108: tongue_4
-    2100000: Dalmatian
-    4300000: Dalmatian
-    7400000: Arm_Dog|Attack_F
-    7400002: Arm_Dog|Attack_J
-    7400004: Arm_Dog|Attack_L
-    7400006: Arm_Dog|Attack_R
-    7400008: Arm_Dog|Attack_run_RM
-    7400010: Arm_Dog|Attack_trot_RM
-    7400012: Arm_Dog|Crouch_B_RM
-    7400014: Arm_Dog|Crouch_BL_RM
-    7400016: Arm_Dog|Crouch_BR_RM
-    7400018: Arm_Dog|Crouch_F_RM
-    7400020: Arm_Dog|Crouch_Idle
-    7400022: Arm_Dog|Crouch_L_RM
-    7400024: Arm_Dog|Crouch_R_RM
-    7400026: Arm_Dog|Crouch_turn_L_RM
-    7400028: Arm_Dog|Crouch_turn_R_RM
-    7400030: Arm_Dog|Death_L
-    7400032: Arm_Dog|Death_R
-    7400034: Arm_Dog|Digging
-    7400036: Arm_Dog|Drink
-    7400038: Arm_Dog|Eat_1
-    7400040: Arm_Dog|Eat_2
-    7400042: Arm_Dog|Fall_edge_RM
-    7400044: Arm_Dog|Fall_high
-    7400046: Arm_Dog|Fall_land
-    7400048: Arm_Dog|Fall_low
-    7400050: Arm_Dog|Hit_B
-    7400052: Arm_Dog|Hit_F
-    7400054: Arm_Dog|Hit_M
-    7400056: Arm_Dog|Idle_1
-    7400058: Arm_Dog|Idle_2
-    7400060: Arm_Dog|Idle_3
-    7400062: Arm_Dog|Idle_4
-    7400064: Arm_Dog|Idle_5
-    7400066: Arm_Dog|Jump_place
-    7400068: Arm_Dog|Jump_run_RM
-    7400070: Arm_Dog|Jump_trot_RM
-    7400072: Arm_Dog|Jump_up_RM
-    7400074: Arm_Dog|Lie
-    7400076: Arm_Dog|Lie_loop_2
-    7400078: Arm_Dog|Lie_Sleep
-    7400080: Arm_Dog|Pissing
-    7400082: Arm_Dog|Run_F_RM
-    7400084: Arm_Dog|Run_L_RM
-    7400086: Arm_Dog|Run_R_RM
-    7400088: Arm_Dog|Sitting
-    7400090: Arm_Dog|Swim_B_RM
-    7400092: Arm_Dog|Swim_BL_RM
-    7400094: Arm_Dog|Swim_BR_RM
-    7400096: Arm_Dog|Swim_enter_RM
-    7400098: Arm_Dog|Swim_F_RM
-    7400100: Arm_Dog|Swim_idle
-    7400102: Arm_Dog|Swim_L_RM
-    7400104: Arm_Dog|Swim_R_RM
-    7400106: Arm_Dog|Swim_Turn_L_RM
-    7400108: Arm_Dog|Swim_Turn_R_RM
-    7400110: Arm_Dog|Trot_F_RM
-    7400112: Arm_Dog|Trot_L_RM
-    7400114: Arm_Dog|Trot_R_RM
-    7400116: Arm_Dog|Turn_180_L_RM
-    7400118: Arm_Dog|Turn_180_R_RM
-    7400120: Arm_Dog|Turn_90_L_RM
-    7400122: Arm_Dog|Turn_90_R_RM
-    7400124: Arm_Dog|Turn_L_RM
-    7400126: Arm_Dog|Turn_R_RM
-    7400128: Arm_Dog|Walk_B_RM
-    7400130: Arm_Dog|Walk_BL_RM
-    7400132: Arm_Dog|Walk_BR_RM
-    7400134: Arm_Dog|Walk_F_RM
-    7400136: Arm_Dog|Walk_L_RM
-    7400138: Arm_Dog|Walk_R_RM
-    7400140: Arm_Dog|Crouch_Idle_end
-    7400142: Arm_Dog|Crouch_Idle_loop
-    7400144: Arm_Dog|Crouch_Idle_start
-    7400146: Arm_Dog|Digging_end
-    7400148: Arm_Dog|Digging_loop
-    7400150: Arm_Dog|Digging_start
-    7400152: Arm_Dog|Drink_loop
-    7400154: Arm_Dog|Eat_loop
-    7400156: Arm_Dog|EatDrink_end
-    7400158: Arm_Dog|EatDrink_start
-    7400160: Arm_Dog|Idle_5_end
-    7400162: Arm_Dog|Idle_5_loop
-    7400164: Arm_Dog|Idle_5_start
-    7400166: Arm_Dog|Jump_up_hor
-    7400168: Arm_Dog|Jump_up_land_RM
-    7400170: Arm_Dog|Jump_up_start_RM
-    7400172: Arm_Dog|Jump_up_vert
-    7400174: Arm_Dog|Jump_up_vert_fall
-    7400176: Arm_Dog|Lie_end
-    7400178: Arm_Dog|Lie_loop_1
-    7400180: Arm_Dog|Lie_Sleep_end
-    7400182: Arm_Dog|Lie_Sleep_loop
-    7400184: Arm_Dog|Lie_Sleep_start
-    7400186: Arm_Dog|Lie_start
-    7400188: Arm_Dog|Sitting_end
-    7400190: Arm_Dog|Sitting_loop
-    7400192: Arm_Dog|Sitting_start
-    9500000: //RootNode
-    13700000: Dalmatian
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Arm_Dog
+  - first:
+      1: 100002
+    second: claws_b.L
+  - first:
+      1: 100004
+    second: claws_b.R
+  - first:
+      1: 100006
+    second: claws_f.L
+  - first:
+      1: 100008
+    second: claws_f.R
+  - first:
+      1: 100010
+    second: Dalmatian
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: Ear.L
+  - first:
+      1: 100016
+    second: Ear.R
+  - first:
+      1: 100018
+    second: eye.L
+  - first:
+      1: 100020
+    second: eye.R
+  - first:
+      1: 100022
+    second: foot_b.L
+  - first:
+      1: 100024
+    second: foot_b.R
+  - first:
+      1: 100026
+    second: foot_f.L
+  - first:
+      1: 100028
+    second: foot_f.R
+  - first:
+      1: 100030
+    second: head
+  - first:
+      1: 100032
+    second: Helper_foot_b.L
+  - first:
+      1: 100034
+    second: Helper_foot_b.R
+  - first:
+      1: 100036
+    second: Helper_shin_f.L
+  - first:
+      1: 100038
+    second: Helper_shin_f.R
+  - first:
+      1: 100040
+    second: hip_b.L
+  - first:
+      1: 100042
+    second: hip_b.R
+  - first:
+      1: 100044
+    second: hip_f.L
+  - first:
+      1: 100046
+    second: hip_f.R
+  - first:
+      1: 100048
+    second: leg_b.L
+  - first:
+      1: 100050
+    second: leg_b.R
+  - first:
+      1: 100052
+    second: leg_f.L
+  - first:
+      1: 100054
+    second: leg_f.R
+  - first:
+      1: 100056
+    second: mouth
+  - first:
+      1: 100058
+    second: neck
+  - first:
+      1: 100060
+    second: nose
+  - first:
+      1: 100062
+    second: Root_bone
+  - first:
+      1: 100064
+    second: shin_b.L
+  - first:
+      1: 100066
+    second: shin_b.R
+  - first:
+      1: 100068
+    second: shin_f.L
+  - first:
+      1: 100070
+    second: shin_f.R
+  - first:
+      1: 100072
+    second: Spine_01
+  - first:
+      1: 100074
+    second: Spine_02
+  - first:
+      1: 100076
+    second: Spine_03
+  - first:
+      1: 100078
+    second: Spine_04
+  - first:
+      1: 100080
+    second: Spine_05
+  - first:
+      1: 100082
+    second: Spine_base
+  - first:
+      1: 100084
+    second: tail_01
+  - first:
+      1: 100086
+    second: tail_02
+  - first:
+      1: 100088
+    second: tail_03
+  - first:
+      1: 100090
+    second: tail_04
+  - first:
+      1: 100092
+    second: tail_05
+  - first:
+      1: 100094
+    second: thigh_b.L
+  - first:
+      1: 100096
+    second: thigh_b.R
+  - first:
+      1: 100098
+    second: thigh_f.L
+  - first:
+      1: 100100
+    second: thigh_f.R
+  - first:
+      1: 100102
+    second: tongue_1
+  - first:
+      1: 100104
+    second: tongue_2
+  - first:
+      1: 100106
+    second: tongue_3
+  - first:
+      1: 100108
+    second: tongue_4
+  - first:
+      4: 400000
+    second: Arm_Dog
+  - first:
+      4: 400002
+    second: claws_b.L
+  - first:
+      4: 400004
+    second: claws_b.R
+  - first:
+      4: 400006
+    second: claws_f.L
+  - first:
+      4: 400008
+    second: claws_f.R
+  - first:
+      4: 400010
+    second: Dalmatian
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: Ear.L
+  - first:
+      4: 400016
+    second: Ear.R
+  - first:
+      4: 400018
+    second: eye.L
+  - first:
+      4: 400020
+    second: eye.R
+  - first:
+      4: 400022
+    second: foot_b.L
+  - first:
+      4: 400024
+    second: foot_b.R
+  - first:
+      4: 400026
+    second: foot_f.L
+  - first:
+      4: 400028
+    second: foot_f.R
+  - first:
+      4: 400030
+    second: head
+  - first:
+      4: 400032
+    second: Helper_foot_b.L
+  - first:
+      4: 400034
+    second: Helper_foot_b.R
+  - first:
+      4: 400036
+    second: Helper_shin_f.L
+  - first:
+      4: 400038
+    second: Helper_shin_f.R
+  - first:
+      4: 400040
+    second: hip_b.L
+  - first:
+      4: 400042
+    second: hip_b.R
+  - first:
+      4: 400044
+    second: hip_f.L
+  - first:
+      4: 400046
+    second: hip_f.R
+  - first:
+      4: 400048
+    second: leg_b.L
+  - first:
+      4: 400050
+    second: leg_b.R
+  - first:
+      4: 400052
+    second: leg_f.L
+  - first:
+      4: 400054
+    second: leg_f.R
+  - first:
+      4: 400056
+    second: mouth
+  - first:
+      4: 400058
+    second: neck
+  - first:
+      4: 400060
+    second: nose
+  - first:
+      4: 400062
+    second: Root_bone
+  - first:
+      4: 400064
+    second: shin_b.L
+  - first:
+      4: 400066
+    second: shin_b.R
+  - first:
+      4: 400068
+    second: shin_f.L
+  - first:
+      4: 400070
+    second: shin_f.R
+  - first:
+      4: 400072
+    second: Spine_01
+  - first:
+      4: 400074
+    second: Spine_02
+  - first:
+      4: 400076
+    second: Spine_03
+  - first:
+      4: 400078
+    second: Spine_04
+  - first:
+      4: 400080
+    second: Spine_05
+  - first:
+      4: 400082
+    second: Spine_base
+  - first:
+      4: 400084
+    second: tail_01
+  - first:
+      4: 400086
+    second: tail_02
+  - first:
+      4: 400088
+    second: tail_03
+  - first:
+      4: 400090
+    second: tail_04
+  - first:
+      4: 400092
+    second: tail_05
+  - first:
+      4: 400094
+    second: thigh_b.L
+  - first:
+      4: 400096
+    second: thigh_b.R
+  - first:
+      4: 400098
+    second: thigh_f.L
+  - first:
+      4: 400100
+    second: thigh_f.R
+  - first:
+      4: 400102
+    second: tongue_1
+  - first:
+      4: 400104
+    second: tongue_2
+  - first:
+      4: 400106
+    second: tongue_3
+  - first:
+      4: 400108
+    second: tongue_4
+  - first:
+      21: 2100000
+    second: Dalmatian
+  - first:
+      43: 4300000
+    second: Dalmatian
+  - first:
+      74: 7400000
+    second: Arm_Dog|Attack_F
+  - first:
+      74: 7400002
+    second: Arm_Dog|Attack_J
+  - first:
+      74: 7400004
+    second: Arm_Dog|Attack_L
+  - first:
+      74: 7400006
+    second: Arm_Dog|Attack_R
+  - first:
+      74: 7400008
+    second: Arm_Dog|Attack_run_RM
+  - first:
+      74: 7400010
+    second: Arm_Dog|Attack_trot_RM
+  - first:
+      74: 7400012
+    second: Arm_Dog|Crouch_B_RM
+  - first:
+      74: 7400014
+    second: Arm_Dog|Crouch_BL_RM
+  - first:
+      74: 7400016
+    second: Arm_Dog|Crouch_BR_RM
+  - first:
+      74: 7400018
+    second: Arm_Dog|Crouch_F_RM
+  - first:
+      74: 7400020
+    second: Arm_Dog|Crouch_Idle
+  - first:
+      74: 7400022
+    second: Arm_Dog|Crouch_L_RM
+  - first:
+      74: 7400024
+    second: Arm_Dog|Crouch_R_RM
+  - first:
+      74: 7400026
+    second: Arm_Dog|Crouch_turn_L_RM
+  - first:
+      74: 7400028
+    second: Arm_Dog|Crouch_turn_R_RM
+  - first:
+      74: 7400030
+    second: Arm_Dog|Death_L
+  - first:
+      74: 7400032
+    second: Arm_Dog|Death_R
+  - first:
+      74: 7400034
+    second: Arm_Dog|Digging
+  - first:
+      74: 7400036
+    second: Arm_Dog|Drink
+  - first:
+      74: 7400038
+    second: Arm_Dog|Eat_1
+  - first:
+      74: 7400040
+    second: Arm_Dog|Eat_2
+  - first:
+      74: 7400042
+    second: Arm_Dog|Fall_edge_RM
+  - first:
+      74: 7400044
+    second: Arm_Dog|Fall_high
+  - first:
+      74: 7400046
+    second: Arm_Dog|Fall_land
+  - first:
+      74: 7400048
+    second: Arm_Dog|Fall_low
+  - first:
+      74: 7400050
+    second: Arm_Dog|Hit_B
+  - first:
+      74: 7400052
+    second: Arm_Dog|Hit_F
+  - first:
+      74: 7400054
+    second: Arm_Dog|Hit_M
+  - first:
+      74: 7400056
+    second: Arm_Dog|Idle_1
+  - first:
+      74: 7400058
+    second: Arm_Dog|Idle_2
+  - first:
+      74: 7400060
+    second: Arm_Dog|Idle_3
+  - first:
+      74: 7400062
+    second: Arm_Dog|Idle_4
+  - first:
+      74: 7400064
+    second: Arm_Dog|Idle_5
+  - first:
+      74: 7400066
+    second: Arm_Dog|Jump_place
+  - first:
+      74: 7400068
+    second: Arm_Dog|Jump_run_RM
+  - first:
+      74: 7400070
+    second: Arm_Dog|Jump_trot_RM
+  - first:
+      74: 7400072
+    second: Arm_Dog|Jump_up_RM
+  - first:
+      74: 7400074
+    second: Arm_Dog|Lie
+  - first:
+      74: 7400076
+    second: Arm_Dog|Lie_loop_2
+  - first:
+      74: 7400078
+    second: Arm_Dog|Lie_Sleep
+  - first:
+      74: 7400080
+    second: Arm_Dog|Pissing
+  - first:
+      74: 7400082
+    second: Arm_Dog|Run_F_RM
+  - first:
+      74: 7400084
+    second: Arm_Dog|Run_L_RM
+  - first:
+      74: 7400086
+    second: Arm_Dog|Run_R_RM
+  - first:
+      74: 7400088
+    second: Arm_Dog|Sitting
+  - first:
+      74: 7400090
+    second: Arm_Dog|Swim_B_RM
+  - first:
+      74: 7400092
+    second: Arm_Dog|Swim_BL_RM
+  - first:
+      74: 7400094
+    second: Arm_Dog|Swim_BR_RM
+  - first:
+      74: 7400096
+    second: Arm_Dog|Swim_enter_RM
+  - first:
+      74: 7400098
+    second: Arm_Dog|Swim_F_RM
+  - first:
+      74: 7400100
+    second: Arm_Dog|Swim_idle
+  - first:
+      74: 7400102
+    second: Arm_Dog|Swim_L_RM
+  - first:
+      74: 7400104
+    second: Arm_Dog|Swim_R_RM
+  - first:
+      74: 7400106
+    second: Arm_Dog|Swim_Turn_L_RM
+  - first:
+      74: 7400108
+    second: Arm_Dog|Swim_Turn_R_RM
+  - first:
+      74: 7400110
+    second: Arm_Dog|Trot_F_RM
+  - first:
+      74: 7400112
+    second: Arm_Dog|Trot_L_RM
+  - first:
+      74: 7400114
+    second: Arm_Dog|Trot_R_RM
+  - first:
+      74: 7400116
+    second: Arm_Dog|Turn_180_L_RM
+  - first:
+      74: 7400118
+    second: Arm_Dog|Turn_180_R_RM
+  - first:
+      74: 7400120
+    second: Arm_Dog|Turn_90_L_RM
+  - first:
+      74: 7400122
+    second: Arm_Dog|Turn_90_R_RM
+  - first:
+      74: 7400124
+    second: Arm_Dog|Turn_L_RM
+  - first:
+      74: 7400126
+    second: Arm_Dog|Turn_R_RM
+  - first:
+      74: 7400128
+    second: Arm_Dog|Walk_B_RM
+  - first:
+      74: 7400130
+    second: Arm_Dog|Walk_BL_RM
+  - first:
+      74: 7400132
+    second: Arm_Dog|Walk_BR_RM
+  - first:
+      74: 7400134
+    second: Arm_Dog|Walk_F_RM
+  - first:
+      74: 7400136
+    second: Arm_Dog|Walk_L_RM
+  - first:
+      74: 7400138
+    second: Arm_Dog|Walk_R_RM
+  - first:
+      74: 7400140
+    second: Arm_Dog|Crouch_Idle_end
+  - first:
+      74: 7400142
+    second: Arm_Dog|Crouch_Idle_loop
+  - first:
+      74: 7400144
+    second: Arm_Dog|Crouch_Idle_start
+  - first:
+      74: 7400146
+    second: Arm_Dog|Digging_end
+  - first:
+      74: 7400148
+    second: Arm_Dog|Digging_loop
+  - first:
+      74: 7400150
+    second: Arm_Dog|Digging_start
+  - first:
+      74: 7400152
+    second: Arm_Dog|Drink_loop
+  - first:
+      74: 7400154
+    second: Arm_Dog|Eat_loop
+  - first:
+      74: 7400156
+    second: Arm_Dog|EatDrink_end
+  - first:
+      74: 7400158
+    second: Arm_Dog|EatDrink_start
+  - first:
+      74: 7400160
+    second: Arm_Dog|Idle_5_end
+  - first:
+      74: 7400162
+    second: Arm_Dog|Idle_5_loop
+  - first:
+      74: 7400164
+    second: Arm_Dog|Idle_5_start
+  - first:
+      74: 7400166
+    second: Arm_Dog|Jump_up_hor
+  - first:
+      74: 7400168
+    second: Arm_Dog|Jump_up_land_RM
+  - first:
+      74: 7400170
+    second: Arm_Dog|Jump_up_start_RM
+  - first:
+      74: 7400172
+    second: Arm_Dog|Jump_up_vert
+  - first:
+      74: 7400174
+    second: Arm_Dog|Jump_up_vert_fall
+  - first:
+      74: 7400176
+    second: Arm_Dog|Lie_end
+  - first:
+      74: 7400178
+    second: Arm_Dog|Lie_loop_1
+  - first:
+      74: 7400180
+    second: Arm_Dog|Lie_Sleep_end
+  - first:
+      74: 7400182
+    second: Arm_Dog|Lie_Sleep_loop
+  - first:
+      74: 7400184
+    second: Arm_Dog|Lie_Sleep_start
+  - first:
+      74: 7400186
+    second: Arm_Dog|Lie_start
+  - first:
+      74: 7400188
+    second: Arm_Dog|Sitting_end
+  - first:
+      74: 7400190
+    second: Arm_Dog|Sitting_loop
+  - first:
+      74: 7400192
+    second: Arm_Dog|Sitting_start
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Dalmatian
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -221,7 +643,7 @@ ModelImporter:
       name: Dalmatian
     second: {fileID: 2100000, guid: aeb3700ffd2b8df43aaeb553ab4da0c4, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -230,6 +652,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -250,6 +673,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_F
       takeName: Arm_Dog|Attack_F
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -278,6 +702,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_J
       takeName: Arm_Dog|Attack_J
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -306,6 +731,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_L
       takeName: Arm_Dog|Attack_L
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -334,6 +760,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_R
       takeName: Arm_Dog|Attack_R
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -362,6 +789,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_run_RM
       takeName: Arm_Dog|Attack_run_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 45
       wrapMode: 0
@@ -390,6 +818,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Attack_trot_RM
       takeName: Arm_Dog|Attack_trot_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -418,6 +847,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_B_RM
       takeName: Arm_Dog|Crouch_B_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -446,6 +876,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_BL_RM
       takeName: Arm_Dog|Crouch_BL_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -474,6 +905,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_BR_RM
       takeName: Arm_Dog|Crouch_BR_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -502,6 +934,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_F_RM
       takeName: Arm_Dog|Crouch_F_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -530,6 +963,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_Idle_end
       takeName: Arm_Dog|Crouch_Idle_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -558,6 +992,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_Idle_loop
       takeName: Arm_Dog|Crouch_Idle_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -586,6 +1021,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_Idle_start
       takeName: Arm_Dog|Crouch_Idle_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -614,6 +1050,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_L_RM
       takeName: Arm_Dog|Crouch_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -642,6 +1079,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_R_RM
       takeName: Arm_Dog|Crouch_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -670,6 +1108,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_turn_L_RM
       takeName: Arm_Dog|Crouch_turn_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -698,6 +1137,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Crouch_turn_R_RM
       takeName: Arm_Dog|Crouch_turn_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -726,6 +1166,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Death_L
       takeName: Arm_Dog|Death_L
+      internalID: 0
       firstFrame: 0
       lastFrame: 28
       wrapMode: 0
@@ -754,6 +1195,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Death_R
       takeName: Arm_Dog|Death_R
+      internalID: 0
       firstFrame: 0
       lastFrame: 28
       wrapMode: 0
@@ -782,6 +1224,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Digging_end
       takeName: Arm_Dog|Digging_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -810,6 +1253,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Digging_loop
       takeName: Arm_Dog|Digging_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -838,6 +1282,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Digging_start
       takeName: Arm_Dog|Digging_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -866,6 +1311,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Drink_loop
       takeName: Arm_Dog|Drink_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -894,6 +1340,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Eat_2
       takeName: Arm_Dog|Eat_2
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -922,6 +1369,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Eat_loop
       takeName: Arm_Dog|Eat_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -950,6 +1398,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|EatDrink_end
       takeName: Arm_Dog|EatDrink_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -978,6 +1427,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|EatDrink_start
       takeName: Arm_Dog|EatDrink_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1006,6 +1456,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Fall_edge_RM
       takeName: Arm_Dog|Fall_edge_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -1034,6 +1485,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Fall_high
       takeName: Arm_Dog|Fall_high
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1062,6 +1514,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Fall_land
       takeName: Arm_Dog|Fall_land
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -1090,6 +1543,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Fall_low
       takeName: Arm_Dog|Fall_low
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1118,6 +1572,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Hit_B
       takeName: Arm_Dog|Hit_B
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -1146,6 +1601,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Hit_F
       takeName: Arm_Dog|Hit_F
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -1174,6 +1630,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Hit_M
       takeName: Arm_Dog|Hit_M
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -1202,6 +1659,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_1
       takeName: Arm_Dog|Idle_1
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -1230,6 +1688,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_2
       takeName: Arm_Dog|Idle_2
+      internalID: 0
       firstFrame: 0
       lastFrame: 120
       wrapMode: 0
@@ -1258,6 +1717,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_3
       takeName: Arm_Dog|Idle_3
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -1286,6 +1746,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_4
       takeName: Arm_Dog|Idle_4
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -1314,6 +1775,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_5_end
       takeName: Arm_Dog|Idle_5_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1342,6 +1804,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_5_loop
       takeName: Arm_Dog|Idle_5_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -1370,6 +1833,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Idle_5_start
       takeName: Arm_Dog|Idle_5_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1398,6 +1862,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_place
       takeName: Arm_Dog|Jump_place
+      internalID: 0
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -1426,6 +1891,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_run_RM
       takeName: Arm_Dog|Jump_run_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 47
       wrapMode: 0
@@ -1454,6 +1920,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_trot_RM
       takeName: Arm_Dog|Jump_trot_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 45
       wrapMode: 0
@@ -1482,6 +1949,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_hor
       takeName: Arm_Dog|Jump_up_hor
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1510,6 +1978,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_land_RM
       takeName: Arm_Dog|Jump_up_land_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -1538,6 +2007,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_RM
       takeName: Arm_Dog|Jump_up_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 27
       wrapMode: 0
@@ -1566,6 +2036,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_start_RM
       takeName: Arm_Dog|Jump_up_start_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -1594,6 +2065,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_vert
       takeName: Arm_Dog|Jump_up_vert
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1622,6 +2094,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Jump_up_vert_fall
       takeName: Arm_Dog|Jump_up_vert_fall
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1650,6 +2123,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_end
       takeName: Arm_Dog|Lie_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 35
       wrapMode: 0
@@ -1678,6 +2152,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_loop_1
       takeName: Arm_Dog|Lie_loop_1
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -1706,6 +2181,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_loop_2
       takeName: Arm_Dog|Lie_loop_2
+      internalID: 0
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -1734,6 +2210,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_Sleep_end
       takeName: Arm_Dog|Lie_Sleep_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1762,6 +2239,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_Sleep_loop
       takeName: Arm_Dog|Lie_Sleep_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -1790,6 +2268,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_Sleep_start
       takeName: Arm_Dog|Lie_Sleep_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1818,6 +2297,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Lie_start
       takeName: Arm_Dog|Lie_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 35
       wrapMode: 0
@@ -1846,6 +2326,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Pissing
       takeName: Arm_Dog|Pissing
+      internalID: 0
       firstFrame: 0
       lastFrame: 130
       wrapMode: 0
@@ -1874,6 +2355,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Run_F_RM
       takeName: Arm_Dog|Run_F_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -1902,6 +2384,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Run_L_RM
       takeName: Arm_Dog|Run_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -1930,6 +2413,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Run_R_RM
       takeName: Arm_Dog|Run_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -1958,6 +2442,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Sitting_end
       takeName: Arm_Dog|Sitting_end
+      internalID: 0
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0
@@ -1986,6 +2471,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Sitting_loop
       takeName: Arm_Dog|Sitting_loop
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -2014,6 +2500,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Sitting_start
       takeName: Arm_Dog|Sitting_start
+      internalID: 0
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0
@@ -2042,6 +2529,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_B_RM
       takeName: Arm_Dog|Swim_B_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 33
       wrapMode: 0
@@ -2070,6 +2558,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_BL_RM
       takeName: Arm_Dog|Swim_BL_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2098,6 +2587,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_BR_RM
       takeName: Arm_Dog|Swim_BR_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2126,6 +2616,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_enter_RM
       takeName: Arm_Dog|Swim_enter_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2154,6 +2645,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_F_RM
       takeName: Arm_Dog|Swim_F_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2182,6 +2674,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_idle
       takeName: Arm_Dog|Swim_idle
+      internalID: 0
       firstFrame: 0
       lastFrame: 40
       wrapMode: 0
@@ -2210,6 +2703,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_L_RM
       takeName: Arm_Dog|Swim_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2238,6 +2732,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_R_RM
       takeName: Arm_Dog|Swim_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2266,6 +2761,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_Turn_L_RM
       takeName: Arm_Dog|Swim_Turn_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2294,6 +2790,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Swim_Turn_R_RM
       takeName: Arm_Dog|Swim_Turn_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2322,6 +2819,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Trot_F_RM
       takeName: Arm_Dog|Trot_F_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -2350,6 +2848,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Trot_L_RM
       takeName: Arm_Dog|Trot_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -2378,6 +2877,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Trot_R_RM
       takeName: Arm_Dog|Trot_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -2406,6 +2906,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_180_L_RM
       takeName: Arm_Dog|Turn_180_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -2434,6 +2935,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_180_R_RM
       takeName: Arm_Dog|Turn_180_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -2462,6 +2964,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_90_L_RM
       takeName: Arm_Dog|Turn_90_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2490,6 +2993,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_90_R_RM
       takeName: Arm_Dog|Turn_90_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -2518,6 +3022,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_L_RM
       takeName: Arm_Dog|Turn_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -2546,6 +3051,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Turn_R_RM
       takeName: Arm_Dog|Turn_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -2574,6 +3080,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Walk_B_RM
       takeName: Arm_Dog|Walk_B_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -2600,10 +3107,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Arm_Dog|Walk_BL_RM
-      takeName: Arm_Dog|Walk_BL_RM
+      name: Arm_Dog|Death_L (1)
+      takeName: Arm_Dog|Death_L
+      internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2630,6 +3138,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Walk_BR_RM
       takeName: Arm_Dog|Walk_BR_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -2658,6 +3167,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Walk_F_RM
       takeName: Arm_Dog|Walk_F_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -2686,6 +3196,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Walk_L_RM
       takeName: Arm_Dog|Walk_L_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -2714,6 +3225,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Arm_Dog|Walk_R_RM
       takeName: Arm_Dog|Walk_R_RM
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -2746,25 +3258,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 0
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: 1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -2773,10 +3296,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -2786,13 +3309,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: Root_bone
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
