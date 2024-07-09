@@ -28,7 +28,12 @@ public class UserInputs : MonoBehaviour
             keyboardText = keyboard.text;
             Debug.Log(keyboardText);
             // Do stuff with keyboardText
+            
         }
+
+        // Example of accessing the steps data
+        int currentStepsData = StepsDataManager.Instance.GetStepsData();
+        Debug.Log("Current Steps Data: " + currentStepsData);
     }
 
     public void ReadInput(){

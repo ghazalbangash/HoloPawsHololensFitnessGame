@@ -7,8 +7,8 @@ using System;
 using UnityEngine.UI;
 
 
+
 #if !UNITY_EDITOR
-    using Windows.Networking;
     using Windows.Networking.Sockets;
     using Windows.Storage.Streams;
     using System.Threading.Tasks;
@@ -16,106 +16,83 @@ using UnityEngine.UI;
 
 public class MainServer : MonoBehaviour
 {
-    public String _input = "Waiting";
-    public String data = "test";
-
-    public TMP_Text HeartRate;
-    public TMP_Text Steps;
-
-
-    public float speed = 5f; // Speed at which the dog follows the player
-    
     public TMP_Text logging;
 
-
 #if !UNITY_EDITOR
-        StreamSocket socket;
-        StreamSocketListener listener;
-        String port;
-        String message;
-
+    private StreamSocketListener listener;
+    private string port = "9090";
 #endif
 
-    // Use this for initialization
     void Start()
     {
-        
-
 #if !UNITY_EDITOR
-        logging.text = "enters";
-        Debug.Log("it enters here");
         listener = new StreamSocketListener();
-        port = "9090";
-        listener.ConnectionReceived += Listener_ConnectionReceived;
-        listener.Control.KeepAlive = false;
-
-        Listener_Start();
+        listener.ConnectionReceived += OnConnectionReceived;
+        StartListener();
 #endif
     }
 
-
-
-
+    public void OnStepsDataReceived(int newStepsData)
+    {
+        StepsDataManager.Instance.SetStepsData(newStepsData);
+    }
 
 #if !UNITY_EDITOR
-    private async void Listener_Start()
+    private async void StartListener()
     {
-        Debug.Log("Listener started");
         try
         {
             await listener.BindServiceNameAsync(port);
-            logging.text = "listener started here";
+            logging.text = "Listener started on port " + port;
+            Debug.Log("Listener started on port " + port);
         }
         catch (Exception e)
         {
-            Debug.Log("Error: " + e.Message);
+            logging.text = "Failed to start listener: " + e.Message;
+            Debug.LogError("Failed to start listener: " + e.Message);
+            Debug.LogError("Exception details: " + e.ToString());
         }
-
-        Debug.Log("Listening");
     }
 
-    private async void Listener_ConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
+    private async void OnConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
     {
-        Debug.Log("Connection received");
         var dw = new DataWriter(args.Socket.OutputStream);
         var dr = new DataReader(args.Socket.InputStream);
 
         try
         {
-            while (true) {
+            while (true)
+            {
+                dw.WriteString("Hello from HoloLens");
+                await dw.StoreAsync();
                 
-
-                    dw.WriteString("Ghazal here");
-                    await dw.StoreAsync();
-                    //dw.DetachStream();
-                    Debug.Log("end sedning");
-                    
-                    
-
-
-                    //DataReader reader = new DataReader(sender.InputStream);
-                    dr.InputStreamOptions = InputStreamOptions.Partial;
-                    await dr.LoadAsync(5024);
-                    string response = dr.ReadString(dr.UnconsumedBufferLength);
-                    Debug.Log(response);
-                    data = response;
-
-                    
-
+                dr.InputStreamOptions = InputStreamOptions.Partial;
+                await dr.LoadAsync(1024);
+                string response = dr.ReadString(dr.UnconsumedBufferLength);
+                Debug.Log("Received: " + response);
+                
+                // Update UI on the main thread
+                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+                {
+                    logging.text = "Received: " + response;
+                    if (int.TryParse(response, out int stepsData))
+                    {
+                        OnStepsDataReceived(stepsData);
+                    }
+                    else
+                    {
+                        logging.text = "Invalid steps data received: " + response;
+                        Debug.LogError("Invalid steps data received: " + response);
+                    }
+                }, false);
             }
         }
         catch (Exception e)
         {
-            Debug.Log("disconnected!!!!!!!! " + e);
+            logging.text = "Connection error: " + e.Message;
+            Debug.LogError("Connection error: " + e.Message);
+            Debug.LogError("Exception details: " + e.ToString());
         }
-
     }
-
 #endif
-
-
-    // private void Update(){
-
-    //     Debug.Log("here is the canvas position"+data );
-    // }
 }

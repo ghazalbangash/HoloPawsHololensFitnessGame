@@ -2019,6 +2019,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1854010586}
+    - targetCorrespondingSourceObject: {fileID: 100012, guid: 7233cd378925e9f4da18ce0536bc0443,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1854010589}
+    - targetCorrespondingSourceObject: {fileID: 100012, guid: 7233cd378925e9f4da18ce0536bc0443,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1854010590}
   m_SourcePrefab: {fileID: 100100000, guid: 7233cd378925e9f4da18ce0536bc0443, type: 3}
 --- !u!1 &840020336
 GameObject:
@@ -2204,12 +2212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c59e1ef65a4664db75f34c1517739b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: Waiting
-  data: test
-  HeartRate: {fileID: 0}
-  Steps: {fileID: 0}
-  speed: 5
-  logging: {fileID: 0}
+  logging: {fileID: 1724103377}
 --- !u!4 &887370524
 Transform:
   m_ObjectHideFlags: 0
@@ -3888,6 +3891,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1854010589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854010572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe7b57ebaad2b7429b0139b3cec5c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsIncrement: 1
+  incrementInterval: 1
+--- !u!114 &1854010590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854010572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d67be14fc3b15a40a1cb1a250aaa892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackingCamera: {fileID: 2063375864}
 --- !u!1 &1866084951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,6 +4331,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1921925286}
   errorDialog: {fileID: 1478918128}
+--- !u!20 &2063375864 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2351505566771328527, guid: 4d7e2f87fefe0ba468719b15288b46e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 754605143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113157179
 GameObject:
   m_ObjectHideFlags: 0
