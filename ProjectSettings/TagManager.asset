@@ -6,6 +6,7 @@ TagManager:
   tags:
   - title
   - Dog
+  - cancleButton
   layers:
   - Default
   - TransparentFX

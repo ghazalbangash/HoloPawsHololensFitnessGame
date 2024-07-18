@@ -16,6 +16,9 @@ public class UserInputs : MonoBehaviour
     [SerializeField]
     private ErrorDialog errorDialog; // Reference to the ErrorDialog script
 
+    [SerializeField]
+    private PlayerTracker playerTracker; // Reference to the PlayerTracker script
+
     public void OpenSystemKeyboard()
     {
         keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
@@ -28,42 +31,39 @@ public class UserInputs : MonoBehaviour
             keyboardText = keyboard.text;
             Debug.Log(keyboardText);
             // Do stuff with keyboardText
-            
         }
 
-        // Example of accessing the steps data
+
         int currentStepsData = StepsDataManager.Instance.GetStepsData();
         Debug.Log("Current Steps Data: " + currentStepsData);
     }
 
-    public void ReadInput(){
+    public void ReadInput()
+    {
         keyboardText = keyboard.text;
         Debug.Log(keyboardText);
-
     }
 
-    public void ReadWeight(string s){
+    public void ReadWeight(string s)
+    {
         keyboardWeight = s;
         Debug.Log(keyboardWeight);
         ValidateWeight(keyboardWeight);
-
     }
 
-    public void ReadAge(string s ){
+    public void ReadAge(string s)
+    {
         keyboardAge = s;
         Debug.Log(keyboardAge);
         ValidateAge(keyboardAge);
-
     }
 
-    public void ReadSteps(string s){
+    public void ReadSteps(string s)
+    {
         keyboardSteps = s;
         Debug.Log(keyboardSteps);
         ValidateSteps(keyboardSteps);
-        
-
     }
-
 
     // Method to destroy the canvas
     public void CloseCanvas()
@@ -74,7 +74,6 @@ public class UserInputs : MonoBehaviour
         }
     }
 
-
     private bool ValidateWeight(string weight)
     {
         if (string.IsNullOrWhiteSpace(weight) || !float.TryParse(weight, out _))
@@ -82,7 +81,6 @@ public class UserInputs : MonoBehaviour
             Debug.LogError("Weight input is empty or invalid.");
             ShowErrorDialog("weight is empty or invalid.");
             return false;
-            // Handle error (e.g., show an error message on the UI)
         }
         return true;
     }
@@ -94,7 +92,6 @@ public class UserInputs : MonoBehaviour
             Debug.LogError("Age input is empty or invalid.");
             ShowErrorDialog("Age is empty or invalid.");
             return false;
-            // Handle error (e.g., show an error message on the UI)
         }
         return true;
     }
@@ -105,12 +102,10 @@ public class UserInputs : MonoBehaviour
         {
             Debug.LogError("Steps input is empty or invalid.");
             ShowErrorDialog("steps is empty or invalid.");
-             return false;
-            // Handle error (e.g., show an error message on the UI)
+            return false;
         }
         return true;
     }
-
 
     private void ShowErrorDialog(string message)
     {
@@ -119,7 +114,6 @@ public class UserInputs : MonoBehaviour
             errorDialog.ShowDialog(message);
         }
     }
-
 
     // Method called by the okay button
     public void OnOkayButtonClick()
@@ -132,9 +126,12 @@ public class UserInputs : MonoBehaviour
         {
             Debug.Log("All inputs are valid. Closing canvas.");
             CloseCanvas();
+
+            // Set the total step goal in the PlayerTracker
+            if (playerTracker != null && int.TryParse(keyboardSteps, out int totalStepGoal))
+            {
+                playerTracker.SetTotalStepGoal(totalStepGoal);
+            }
         }
     }
 }
-
-
-

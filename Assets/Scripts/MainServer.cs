@@ -37,6 +37,11 @@ public class MainServer : MonoBehaviour
         StepsDataManager.Instance.SetStepsData(newStepsData);
     }
 
+    public void OnCadenceDataReceived(int newCadenceData)
+    {
+        CadenceDataManager.Instance.SetCadenceData(newCadenceData);
+    }
+
 #if !UNITY_EDITOR
     private async void StartListener()
     {
@@ -71,18 +76,22 @@ public class MainServer : MonoBehaviour
                 string response = dr.ReadString(dr.UnconsumedBufferLength);
                 Debug.Log("Received: " + response);
                 
-                // Update UI on the main thread
                 UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                 {
                     logging.text = "Received: " + response;
-                    if (int.TryParse(response, out int stepsData))
+                    string[] dataParts = response.Split(',');
+                    
+                    if (dataParts.Length == 2 &&
+                        int.TryParse(dataParts[0], out int stepsData) &&
+                        double.TryParse(dataParts[1], out double cadenceData))
                     {
                         OnStepsDataReceived(stepsData);
+                        OnCadenceDataReceived((int)cadenceData); // Casting to int if necessary
                     }
                     else
                     {
-                        logging.text = "Invalid steps data received: " + response;
-                        Debug.LogError("Invalid steps data received: " + response);
+                        logging.text = "Invalid data received: " + response;
+                        Debug.LogError("Invalid data received: " + response);
                     }
                 }, false);
             }
@@ -94,5 +103,6 @@ public class MainServer : MonoBehaviour
             Debug.LogError("Exception details: " + e.ToString());
         }
     }
+
 #endif
 }

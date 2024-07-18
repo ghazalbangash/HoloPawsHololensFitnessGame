@@ -13,24 +13,15 @@ public class PlayerTracker : MonoBehaviour
 
     private SpeedTracker speedTracker;
 
-        // Test Variables
+    // Test Variables
     public int stepsIncrement = 1; // Number of steps to increment each update
     public float incrementInterval = 1.0f; // Interval in seconds between increments
     private float timeSinceLastIncrement = 0.0f;
 
     void Start()
     {
-        // Example total step goal
-        int totalStepGoal = 15;
-        playerGoals = new PlayerGoals(totalStepGoal);
-
-        // Define game levels
-        gameLevels = new GameLevels[]
-        {
-            new GameLevels { Activity = ActivityLevel.BriskWalking, MinSpeed = 1.0f, MaxSpeed = 3.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.BriskWalking] },
-            new GameLevels { Activity = ActivityLevel.Jogging, MinSpeed = 3.1f, MaxSpeed = 6.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Jogging] },
-            new GameLevels { Activity = ActivityLevel.Running, MinSpeed = 6.1f, MaxSpeed = 10.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Running] }
-        };
+        // Initialize with a default total step goal
+        SetTotalStepGoal(1000);
 
         currentSteps = 0;
         currentSpeed = 0.0f;
@@ -59,13 +50,26 @@ public class PlayerTracker : MonoBehaviour
 
         // Update steps (this should come from your step tracking system)
 
-                // Simulate step data for testing
-        SimulateSteps();
+        // Simulate step data for testing
+        //SimulateSteps();
 
-        //currentSteps = StepsDataManager.Instance.GetStepsData();
+        currentSteps = StepsDataManager.Instance.GetStepsData();
 
         // Check if the player has reached the step goal for the current activity
         CheckGoals();
+    }
+
+    public void SetTotalStepGoal(int totalStepGoal)
+    {
+        playerGoals = new PlayerGoals(totalStepGoal);
+
+        // Define game levels based on the new total step goal
+        gameLevels = new GameLevels[]
+        {
+            new GameLevels { Activity = ActivityLevel.BriskWalking, MinSpeed = 1.0f, MaxSpeed = 3.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.BriskWalking] },
+            new GameLevels { Activity = ActivityLevel.Jogging, MinSpeed = 3.1f, MaxSpeed = 6.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Jogging] },
+            new GameLevels { Activity = ActivityLevel.Running, MinSpeed = 6.1f, MaxSpeed = 10.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Running] }
+        };
     }
 
     private ActivityLevel GetCurrentActivityLevel(float speed)
@@ -88,7 +92,6 @@ public class PlayerTracker : MonoBehaviour
             // Implement logic for moving to the next level or completing the game
         }
     }
-
 
     // Temporary function to simulate steps increment for testing
     private void SimulateSteps()

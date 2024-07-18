@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class ErrorDialog : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ErrorDialog : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI dialogText;
     [SerializeField]
-    private Button closeButton;
+
+    private Coroutine autoCloseCoroutine; // To manage the auto-close coroutine
 
     private void Start()
     {
@@ -21,12 +23,7 @@ public class ErrorDialog : MonoBehaviour
         {
             Debug.LogError("Dialog Text is not assigned in the inspector.");
         }
-        if (closeButton == null)
-        {
-            Debug.LogError("Close Button is not assigned in the inspector.");
-        }
-
-        closeButton.onClick.AddListener(HideDialog);
+ 
         HideDialog(); // Initially hide the dialog
     }
 
@@ -37,11 +34,24 @@ public class ErrorDialog : MonoBehaviour
             dialogText.text = message;
             dialogPanel.SetActive(true);
             Debug.Log("Showing dialog with message: " + message);
+
+            // Start the coroutine to auto-close the dialog
+            if (autoCloseCoroutine != null)
+            {
+                StopCoroutine(autoCloseCoroutine);
+            }
+            autoCloseCoroutine = StartCoroutine(AutoCloseDialog(3f)); // Close after 3 seconds
         }
         else
         {
             Debug.LogError("DialogText or DialogPanel is not assigned.");
         }
+    }
+
+    private IEnumerator AutoCloseDialog(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        HideDialog();
     }
 
     public void HideDialog()
@@ -54,6 +64,15 @@ public class ErrorDialog : MonoBehaviour
         else
         {
             Debug.LogError("DialogPanel is not assigned.");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Stop the coroutine if the object is destroyed before the dialog auto-closes
+        if (autoCloseCoroutine != null)
+        {
+            StopCoroutine(autoCloseCoroutine);
         }
     }
 }
