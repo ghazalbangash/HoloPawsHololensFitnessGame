@@ -49,10 +49,6 @@ public class PlayerTracker : MonoBehaviour
         currentActivityLevel = GetCurrentActivityLevel(currentSpeed);
 
         // Update steps (this should come from your step tracking system)
-
-        // Simulate step data for testing
-        //SimulateSteps();
-
         currentSteps = StepsDataManager.Instance.GetStepsData();
 
         // Check if the player has reached the step goal for the current activity
@@ -60,7 +56,9 @@ public class PlayerTracker : MonoBehaviour
     }
 
     public void SetTotalStepGoal(int totalStepGoal)
+    
     {
+        Debug.Log("entered here in player tracker func ");
         playerGoals = new PlayerGoals(totalStepGoal);
 
         // Define game levels based on the new total step goal

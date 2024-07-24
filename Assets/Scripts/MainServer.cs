@@ -4,24 +4,25 @@ using UnityEngine;
 using TMPro;
 using System;
 
-using UnityEngine.UI;
-
-
-
 #if !UNITY_EDITOR
-    using Windows.Networking.Sockets;
-    using Windows.Storage.Streams;
-    using System.Threading.Tasks;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using System.Threading.Tasks;
 #endif
 
 public class MainServer : MonoBehaviour
 {
     public TMP_Text logging;
+    public PlayerTracker playerTracker;
 
 #if !UNITY_EDITOR
     private StreamSocketListener listener;
     private string port = "9090";
 #endif
+
+    private int steps;
+    private int age;
+    private int height;
 
     void Start()
     {
@@ -40,6 +41,20 @@ public class MainServer : MonoBehaviour
     public void OnCadenceDataReceived(int newCadenceData)
     {
         CadenceDataManager.Instance.SetCadenceData(newCadenceData);
+    }
+
+    public void OnStepGoalReceived(int newStepGoal)
+    {
+        Debug.Log("Entered OnStepGoalReceived function with step goal: " + newStepGoal);
+        if (playerTracker != null)
+        {
+            Debug.Log("PlayerTracker is not null");
+            playerTracker.SetTotalStepGoal(newStepGoal);
+        }
+        else
+        {
+            Debug.LogError("PlayerTracker is null");
+        }
     }
 
 #if !UNITY_EDITOR
@@ -80,13 +95,78 @@ public class MainServer : MonoBehaviour
                 {
                     logging.text = "Received: " + response;
                     string[] dataParts = response.Split(',');
-                    
-                    if (dataParts.Length == 2 &&
-                        int.TryParse(dataParts[0], out int stepsData) &&
-                        double.TryParse(dataParts[1], out double cadenceData))
+
+                    Debug.Log("Data parts length: " + dataParts.Length);
+                    for (int i = 0; i < dataParts.Length; i++)
                     {
-                        OnStepsDataReceived(stepsData);
-                        OnCadenceDataReceived((int)cadenceData); // Casting to int if necessary
+                        Debug.Log($"Data part {i}: {dataParts[i]}");
+                    }
+
+                    // Handle user data (steps, age, height)
+                    if (dataParts.Length == 3 &&
+                        dataParts[0].StartsWith("Steps:") &&
+                        dataParts[1].StartsWith(" Age:") &&
+                        dataParts[2].StartsWith(" Height:"))
+                    {
+                        Debug.Log("Entered user data handling if statement");
+                        string stepsStr = dataParts[0].Replace("Steps:", "").Trim();
+                        string ageStr = dataParts[1].Replace(" Age:", "").Trim();
+                        string heightStr = dataParts[2].Replace(" Height:", "").Trim();
+
+                        Debug.Log($"Parsed values - Steps: {stepsStr}, Age: {ageStr}, Height: {heightStr}");
+
+                        if (int.TryParse(stepsStr, out steps) &&
+                            int.TryParse(ageStr, out age) &&
+                            int.TryParse(heightStr, out height))
+                        {
+                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Height: {height}";
+                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Height: {height}");
+                            OnStepGoalReceived(steps);
+                        }
+                        else
+                        {
+                            logging.text = "Invalid user data received: " + response;
+                            Debug.LogError("Invalid user data received: " + response);
+                        }
+                    }
+                    // Handle step count and cadence data
+                    else if (dataParts.Length == 2 &&
+                            int.TryParse(dataParts[0], out int stepsData1) &&
+                            double.TryParse(dataParts[1], out double cadenceData1))
+                    {
+                        Debug.Log("Entered step count and cadence data handling if statement");
+                        OnStepsDataReceived(stepsData1);
+                        OnCadenceDataReceived((int)cadenceData1); // Casting to int if necessary
+                    }
+                    // Combined data format: User data and step count/cadence data
+                    else if (dataParts.Length == 5 &&
+                            dataParts[0].StartsWith("Steps:") &&
+                            dataParts[1].StartsWith(" Age:") &&
+                            dataParts[2].StartsWith(" Height:") &&
+                            int.TryParse(dataParts[3], out int stepsData2) &&
+                            double.TryParse(dataParts[4], out double cadenceData2))
+                    {
+                        Debug.Log("Entered combined data handling if statement");
+                        string stepsStr = dataParts[0].Replace("Steps:", "").Trim();
+                        string ageStr = dataParts[1].Replace(" Age:", "").Trim();
+                        string heightStr = dataParts[2].Replace(" Height:", "").Trim();
+
+                        if (int.TryParse(stepsStr, out steps) &&
+                            int.TryParse(ageStr, out age) &&
+                            int.TryParse(heightStr, out height))
+                        {
+                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Height: {height}";
+                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Height: {height}");
+                            OnStepGoalReceived(steps);
+                        }
+                        else
+                        {
+                            logging.text = "Invalid user data received: " + response;
+                            Debug.LogError("Invalid user data received: " + response);
+                        }
+
+                        OnStepsDataReceived(stepsData2);
+                        OnCadenceDataReceived((int)cadenceData2); // Casting to int if necessary
                     }
                     else
                     {

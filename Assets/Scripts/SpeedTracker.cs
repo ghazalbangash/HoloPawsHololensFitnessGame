@@ -43,7 +43,7 @@ public class SpeedTracker : MonoBehaviour
         previousPosition = currentPosition;
 
         // Optionally, log the speed for debugging
-        Debug.Log("Current Speed: " + currentSpeed);
+        // Debug.Log("Current Speed: " + currentSpeed);
     }
 
     public float GetCurrentSpeed()

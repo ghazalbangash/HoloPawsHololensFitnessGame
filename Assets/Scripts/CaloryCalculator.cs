@@ -25,7 +25,6 @@ public class CaloryCalculator : MonoBehaviour
     }
 
     public float GetAverageHeartRate(){
-        Debug.Log("test");
         return 0.0f;
     }
 }
