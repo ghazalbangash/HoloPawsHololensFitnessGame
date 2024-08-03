@@ -14,6 +14,7 @@ public class MainServer : MonoBehaviour
 {
     public TMP_Text logging;
     public PlayerTracker playerTracker;
+    public CaloryCalculator caloriesManager;
 
 #if !UNITY_EDITOR
     private StreamSocketListener listener;
@@ -22,7 +23,7 @@ public class MainServer : MonoBehaviour
 
     private int steps;
     private int age;
-    private int height;
+    private int Weight;
 
     void Start()
     {
@@ -36,11 +37,40 @@ public class MainServer : MonoBehaviour
     public void OnStepsDataReceived(int newStepsData)
     {
         StepsDataManager.Instance.SetStepsData(newStepsData);
-    }
 
+        if (playerTracker != null)
+        {
+            playerTracker.UpdateSteps(newStepsData);
+        }
+        else
+        {
+            Debug.LogError("PlayerTracker is null");
+        }
+    }
     public void OnCadenceDataReceived(int newCadenceData)
     {
         CadenceDataManager.Instance.SetCadenceData(newCadenceData);
+
+        if (caloriesManager != null)
+        {
+            caloriesManager.UpdateCadence(newCadenceData);
+        }
+        else
+        {
+            Debug.LogError("CaloriesManager is null");
+        }
+    }
+
+    public void getWeight(int weight)
+    {
+        if (caloriesManager != null)
+        {
+            caloriesManager.UpdateWeight(weight);
+        }
+        else
+        {
+            Debug.LogError("CaloriesManager is null");
+        }
     }
 
     public void OnStepGoalReceived(int newStepGoal)
@@ -56,6 +86,8 @@ public class MainServer : MonoBehaviour
             Debug.LogError("PlayerTracker is null");
         }
     }
+
+
 
 #if !UNITY_EDITOR
     private async void StartListener()
@@ -106,21 +138,21 @@ public class MainServer : MonoBehaviour
                     if (dataParts.Length == 3 &&
                         dataParts[0].StartsWith("Steps:") &&
                         dataParts[1].StartsWith(" Age:") &&
-                        dataParts[2].StartsWith(" Height:"))
+                        dataParts[2].StartsWith(" Weight:"))
                     {
                         Debug.Log("Entered user data handling if statement");
                         string stepsStr = dataParts[0].Replace("Steps:", "").Trim();
                         string ageStr = dataParts[1].Replace(" Age:", "").Trim();
-                        string heightStr = dataParts[2].Replace(" Height:", "").Trim();
+                        string WeightStr = dataParts[2].Replace(" Weight:", "").Trim();
 
-                        Debug.Log($"Parsed values - Steps: {stepsStr}, Age: {ageStr}, Height: {heightStr}");
+                        Debug.Log($"Parsed values - Steps: {stepsStr}, Age: {ageStr}, Weight: {WeightStr}");
 
                         if (int.TryParse(stepsStr, out steps) &&
                             int.TryParse(ageStr, out age) &&
-                            int.TryParse(heightStr, out height))
+                            int.TryParse(WeightStr, out Weight))
                         {
-                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Height: {height}";
-                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Height: {height}");
+                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
+                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Weight: {Weight}");
                             OnStepGoalReceived(steps);
                         }
                         else
@@ -142,22 +174,24 @@ public class MainServer : MonoBehaviour
                     else if (dataParts.Length == 5 &&
                             dataParts[0].StartsWith("Steps:") &&
                             dataParts[1].StartsWith(" Age:") &&
-                            dataParts[2].StartsWith(" Height:") &&
+                            dataParts[2].StartsWith(" Weight:") &&
                             int.TryParse(dataParts[3], out int stepsData2) &&
                             double.TryParse(dataParts[4], out double cadenceData2))
                     {
                         Debug.Log("Entered combined data handling if statement");
                         string stepsStr = dataParts[0].Replace("Steps:", "").Trim();
                         string ageStr = dataParts[1].Replace(" Age:", "").Trim();
-                        string heightStr = dataParts[2].Replace(" Height:", "").Trim();
+                        string WeightStr = dataParts[2].Replace(" Weight:", "").Trim();
 
                         if (int.TryParse(stepsStr, out steps) &&
                             int.TryParse(ageStr, out age) &&
-                            int.TryParse(heightStr, out height))
+                            int.TryParse(WeightStr, out Weight))
                         {
-                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Height: {height}";
-                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Height: {height}");
+                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
+                            Debug.Log($"User Data - Steps: {steps}, Age: {age}, Weight: {Weight}");
                             OnStepGoalReceived(steps);
+                            getWeight(Weight);
+
                         }
                         else
                         {

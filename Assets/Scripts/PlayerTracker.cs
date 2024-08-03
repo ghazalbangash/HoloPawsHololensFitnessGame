@@ -1,105 +1,133 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerTracker : MonoBehaviour
 {
-    private int currentSteps;
-    private float currentSpeed;
+    private int totalSteps;
     private ActivityLevel currentActivityLevel;
+    private bool levelCompleted;
+    private bool isPopupVisible;
+    private float popupTimer;
 
     public PlayerGoals playerGoals;
-    public GameLevels[] gameLevels;
-
-    private SpeedTracker speedTracker;
-
-    // Test Variables
-    public int stepsIncrement = 1; // Number of steps to increment each update
-    public float incrementInterval = 1.0f; // Interval in seconds between increments
-    private float timeSinceLastIncrement = 0.0f;
+    public GameObject popupMessage;
+    public TMP_Text popupText;
+    public float popupDuration = 3.0f;
 
     void Start()
     {
-        // Initialize with a default total step goal
-        SetTotalStepGoal(1000);
+        //SetTotalStepGoal(150); // Example initial step goal
 
-        currentSteps = 0;
-        currentSpeed = 0.0f;
+        totalSteps = 0;
         currentActivityLevel = ActivityLevel.BriskWalking;
+        levelCompleted = false;
+        isPopupVisible = false;
+        popupTimer = 0.0f;
 
-        // Get the SpeedTracker component
-        speedTracker = GetComponent<SpeedTracker>();
-
-        // Ensure the SpeedTracker component exists
-        if (speedTracker == null)
+        if (popupMessage != null)
         {
-            Debug.LogError("SpeedTracker component not found on GameObject.");
+            popupMessage.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Popup message GameObject not assigned.");
         }
     }
 
     void Update()
     {
-        if (speedTracker != null)
+        if (isPopupVisible)
         {
-            // Update current speed using SpeedTracker
-            currentSpeed = speedTracker.GetCurrentSpeed();
-        }
-
-        // Determine current activity level based on speed
-        currentActivityLevel = GetCurrentActivityLevel(currentSpeed);
-
-        // Update steps (this should come from your step tracking system)
-        currentSteps = StepsDataManager.Instance.GetStepsData();
-
-        // Check if the player has reached the step goal for the current activity
-        CheckGoals();
-    }
-
-    public void SetTotalStepGoal(int totalStepGoal)
-    
-    {
-        Debug.Log("entered here in player tracker func ");
-        playerGoals = new PlayerGoals(totalStepGoal);
-
-        // Define game levels based on the new total step goal
-        gameLevels = new GameLevels[]
-        {
-            new GameLevels { Activity = ActivityLevel.BriskWalking, MinSpeed = 1.0f, MaxSpeed = 3.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.BriskWalking] },
-            new GameLevels { Activity = ActivityLevel.Jogging, MinSpeed = 3.1f, MaxSpeed = 6.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Jogging] },
-            new GameLevels { Activity = ActivityLevel.Running, MinSpeed = 6.1f, MaxSpeed = 10.0f, StepsRequired = playerGoals.StepGoals[ActivityLevel.Running] }
-        };
-    }
-
-    private ActivityLevel GetCurrentActivityLevel(float speed)
-    {
-        foreach (var level in gameLevels)
-        {
-            if (speed >= level.MinSpeed && speed <= level.MaxSpeed)
+            popupTimer += Time.deltaTime;
+            if (popupTimer >= popupDuration)
             {
-                return level.Activity;
+                HidePopupMessage();
+                TransitionToNextLevel();
             }
         }
-        return ActivityLevel.BriskWalking;
+    }
+
+    public void UpdateSteps(int newSteps)
+    {
+        totalSteps = newSteps; // Set the total steps to the latest received value
+
+        Debug.Log("Total steps: " + totalSteps);
+
+        if (!levelCompleted)
+        {
+            CheckGoals();
+        }
     }
 
     private void CheckGoals()
     {
-        if (currentSteps >= playerGoals.StepGoals[currentActivityLevel])
+        int previousSteps = playerGoals.GetStepsRequiredForPreviousLevels(currentActivityLevel);
+        int stepsInCurrentLevel = totalSteps - previousSteps;
+
+        int stepsRequiredForCurrentLevel = playerGoals.GetStepsRequiredForLevel(currentActivityLevel);
+
+        if (stepsInCurrentLevel >= stepsRequiredForCurrentLevel)
         {
             Debug.Log($"Goal reached for {currentActivityLevel}");
-            // Implement logic for moving to the next level or completing the game
+            levelCompleted = true;
+            ShowPopupMessage();
         }
     }
 
-    // Temporary function to simulate steps increment for testing
-    private void SimulateSteps()
+    private void ShowPopupMessage()
     {
-        timeSinceLastIncrement += Time.deltaTime;
-        if (timeSinceLastIncrement >= incrementInterval)
+        isPopupVisible = true;
+        popupTimer = 0.0f;
+
+        if (popupMessage != null)
         {
-            currentSteps += stepsIncrement;
-            timeSinceLastIncrement = 0.0f;
-            Debug.Log("Current Steps: " + currentSteps);
+            popupMessage.SetActive(true);
+            popupText.text = $"Goal reached for {currentActivityLevel}!";
+            Debug.Log("Popup message activated");
         }
+        else
+        {
+            Debug.LogError("Popup message GameObject is null");
+        }
+    }
+
+    private void HidePopupMessage()
+    {
+        isPopupVisible = false;
+
+        if (popupMessage != null)
+        {
+            popupMessage.SetActive(false);
+            Debug.Log("Popup message deactivated");
+        }
+    }
+
+    private void TransitionToNextLevel()
+    {
+        currentActivityLevel = GetNextActivityLevel();
+        levelCompleted = false;
+        Debug.Log("Transitioned to next level: " + currentActivityLevel);
+    }
+
+    private ActivityLevel GetNextActivityLevel()
+    {
+        switch (currentActivityLevel)
+        {
+            case ActivityLevel.BriskWalking:
+                return ActivityLevel.Jogging;
+            case ActivityLevel.Jogging:
+                return ActivityLevel.Running;
+            case ActivityLevel.Running:
+                return ActivityLevel.Running; // Maintain Running if it's the final level
+            default:
+                return ActivityLevel.BriskWalking;
+        }
+    }
+
+    public void SetTotalStepGoal(int totalStepGoal)
+    {
+        playerGoals = new PlayerGoals(totalStepGoal);
+        Debug.Log("Total step goal set: " + playerGoals.TotalStepGoal);
     }
 }

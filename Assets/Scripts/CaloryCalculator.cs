@@ -4,27 +4,60 @@ using UnityEngine;
 
 public class CaloryCalculator : MonoBehaviour
 {
-    public float userWeight; // in kg
-    public float userHeight; // in cm (not used in this calculation but can be used for more accurate calculations)
-    public float restingHeartRate = 70f; // average resting heart rate
-    public float maxHeartRate; // should be set based on the user's age
-    private float met = 8.0f; // MET value for running
-    private float timeElapsed = 0.0f; // total time in hours
-    private float averageHeartRate = 0.0f;
+    public float weightInKg; // User's weight
+    private float totalCaloriesBurned;
+    private float personalBestCalories;
+    private int currentCadence;
 
-    public void UpdateHeartRate(float newHeartRate, float deltaTime)
+    public ProximitySign signManager;
+
+    // MET values based on cadence
+    private float GetMetValue(int cadence)
     {
-        // Update average heart rate (you can improve this by keeping a history of heart rates)
-        averageHeartRate = (averageHeartRate + newHeartRate) / 2;
-        timeElapsed += deltaTime / 3600.0f; // convert deltaTime to hours
+        if (cadence < 100) return 3.5f; // Brisk walking
+        if (cadence < 150) return 5.0f; // Jogging
+        return 8.0f; // Running
     }
 
-    public float CalculateCaloriesBurned()
+    void Update()
     {
-        return ((averageHeartRate - restingHeartRate) / (maxHeartRate - restingHeartRate)) * met * userWeight * timeElapsed;
+        currentCadence = CadenceDataManager.Instance.GetCadenceData();
+
+        if (currentCadence > 0)
+        {
+            float timeInMinutes = Time.deltaTime / 60;
+            float metValue = GetMetValue(currentCadence);
+            float caloriesBurnedPerMinute = metValue * weightInKg * 0.0175f;
+            totalCaloriesBurned += caloriesBurnedPerMinute * timeInMinutes;
+
+            if (totalCaloriesBurned > personalBestCalories)
+            {
+                personalBestCalories = totalCaloriesBurned;
+            }
+
+            if (signManager != null)
+            {
+                signManager.UpdateSignText($"Personal Best: {personalBestCalories:F1} Calories");
+            }
+        }
     }
 
-    public float GetAverageHeartRate(){
-        return 0.0f;
+    public void UpdateCadence(int cadence)
+    {
+        currentCadence = cadence;
+        Debug.Log("cadence sent " + currentCadence);
     }
+
+   public void UpdateWeight(float newWeight)
+    {
+        weightInKg = newWeight;
+        Debug.Log("Weight updated to: " + newWeight);
+    }
+
+    public void StopActivity()
+    {
+        currentCadence = 0;
+        Debug.Log("Activity stopped, cadence reset to 0.");
+    }
+    
 }

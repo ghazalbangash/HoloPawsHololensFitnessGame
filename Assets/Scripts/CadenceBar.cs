@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +9,10 @@ public class CadenceBar : MonoBehaviour
     public float minCadenceThreshold = 50f; // Minimum cadence to maintain alert bar
     public float maxCadenceThreshold = 300f; // Maximum cadence
     public float targetCadence = 140.9f; // Target cadence value
-    public Image fill;
-    public Gradient gradient;
+    public Image fill; // Fill image of the slider
+    public Gradient gradient; // Gradient for color change
     public float smoothTime = 0.5f; // Time it takes to smooth the transition
 
-    private float currentAlertValue;
-    private bool isAlerting;
     private float currentCadence;
 
     void Start()
@@ -26,9 +23,9 @@ public class CadenceBar : MonoBehaviour
             return;
         }
 
-        currentAlertValue = alertBar.maxValue;
-        alertBar.value = currentAlertValue;
-        fill.color = gradient.Evaluate(1f);
+        currentCadence = 0;
+        alertBar.value = currentCadence;
+        fill.color = gradient.Evaluate(0f); // Start with the lowest value on the gradient
     }
 
     void Update()
@@ -73,6 +70,4 @@ public class CadenceBar : MonoBehaviour
         alertBar.value = cad;
         fill.color = gradient.Evaluate(alertBar.normalizedValue);
     }
-
-
 }

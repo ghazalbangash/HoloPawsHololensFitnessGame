@@ -1,62 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ProximitySign : MonoBehaviour
 {
-    public GameObject sign; // The sign UI element
-    public TextMeshProUGUI heartRateText;
-    public TextMeshProUGUI caloriesBurnedText;
-    private CaloryCalculator calorieCalculator;
-    private float updateInterval = 5.0f; // Interval to update the sign
-    private float lastUpdateTime = 0.0f;
+    public TMP_Text signText; // Reference to the TextMeshPro component
+    public Canvas signCanvas; // Reference to the Canvas component
+    public Transform userTransform; // Reference to the user's transform
+
+    public float minDisplayInterval = 10f; // Minimum time between sign displays
+    public float maxDisplayInterval = 20f; // Maximum time between sign displays
+    public float distanceFromUser = 2f; // Distance in front of the user
+    public float offsetToRight = 1f; // Offset to the right
+
+    private float timer = 0f;
+    private float nextDisplayTime = 0f;
+    private bool isCurrentlyVisible = false;
 
     void Start()
     {
-        sign.SetActive(false);
-        calorieCalculator = FindObjectOfType<CaloryCalculator>();
-        if (calorieCalculator == null)
-        {
-            Debug.LogError("CalorieCalculator component not found in the scene.");
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            UpdateSign();
-            sign.SetActive(true);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            sign.SetActive(false);
-        }
+        SetSignVisibility(false);
+        SetNextDisplayTime();
     }
 
     void Update()
     {
-        if (sign.activeSelf && Time.time - lastUpdateTime > updateInterval)
+        timer += Time.deltaTime;
+
+        if (!isCurrentlyVisible && timer >= nextDisplayTime)
         {
-            UpdateSign();
-            lastUpdateTime = Time.time;
+            Debug.Log("Display condition met, showing sign.");
+            //UpdateSignPosition();
+            SetSignVisibility(true);
+            SetNextDisplayTime();
+        }
+        else if (isCurrentlyVisible && timer >= nextDisplayTime)
+        {
+            Debug.Log("Hide condition met, hiding sign.");
+            SetSignVisibility(false);
+            SetNextDisplayTime();
         }
     }
 
-    private void UpdateSign()
+    void UpdateSignPosition()
     {
-        if (calorieCalculator != null)
-        {
-            float averageHeartRate = calorieCalculator.GetAverageHeartRate(); // Assuming you have a method for this
-            float caloriesBurned = calorieCalculator.CalculateCaloriesBurned();
-            heartRateText.text = $"Average Heart Rate: {averageHeartRate:F1} bpm";
-            caloriesBurnedText.text = $"Calories Burned: {caloriesBurned:F1} kcal";
-        }
+        Vector3 forwardOffset = userTransform.forward * distanceFromUser;
+        //Vector3 rightOffset = userTransform.right * offsetToRight;
+        signCanvas.transform.position = userTransform.position + forwardOffset;
+    }
+
+    void SetSignVisibility(bool visible)
+    {
+        signCanvas.enabled = visible;
+        isCurrentlyVisible = visible;
+        Debug.Log($"Sign visibility set to {visible}.");
+    }
+
+    void SetNextDisplayTime()
+    {
+        nextDisplayTime = timer + Random.Range(minDisplayInterval, maxDisplayInterval);
+        Debug.Log($"Next display time set to {nextDisplayTime} seconds from now.");
+    }
+
+    public void UpdateSignText(string text)
+    {
+        Debug.Log("call update sign text");
+        signText.text = text;
     }
 }

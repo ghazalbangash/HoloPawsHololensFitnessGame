@@ -13,11 +13,8 @@ public enum ActivityLevel
 public class GameLevels
 {
     public ActivityLevel Activity { get; set; }
-    public float MinSpeed { get; set; }
-    public float MaxSpeed { get; set; }
     public int StepsRequired { get; set; }
 }
-
 
 public class PlayerGoals
 {
@@ -34,4 +31,24 @@ public class PlayerGoals
             { ActivityLevel.Running, (int)(totalStepGoal * 0.34) }
         };
     }
+
+    public int GetStepsRequiredForLevel(ActivityLevel level)
+    {
+        return StepGoals.ContainsKey(level) ? StepGoals[level] : 0;
+    }
+
+    public int GetStepsRequiredForPreviousLevels(ActivityLevel level)
+    {
+        int steps = 0;
+        foreach (var kvp in StepGoals)
+        {
+            if (kvp.Key < level)
+            {
+                steps += kvp.Value;
+            }
+        }
+        return steps;
+    }
 }
+
+
