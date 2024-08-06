@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 public class MainServer : MonoBehaviour
 {
     public TMP_Text logging;
+    public TMP_Text cadence;
     public PlayerTracker playerTracker;
     public CaloryCalculator caloriesManager;
 
@@ -151,7 +152,7 @@ public class MainServer : MonoBehaviour
                             int.TryParse(ageStr, out age) &&
                             int.TryParse(WeightStr, out Weight))
                         {
-                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
+                            //logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
                             Debug.Log($"User Data - Steps: {steps}, Age: {age}, Weight: {Weight}");
                             OnStepGoalReceived(steps);
                         }
@@ -167,6 +168,8 @@ public class MainServer : MonoBehaviour
                             double.TryParse(dataParts[1], out double cadenceData1))
                     {
                         Debug.Log("Entered step count and cadence data handling if statement");
+                        logging.text = stepsData1.ToString();
+                        cadence.text = cadenceData1.ToString("F2");
                         OnStepsDataReceived(stepsData1);
                         OnCadenceDataReceived((int)cadenceData1); // Casting to int if necessary
                     }
@@ -187,7 +190,7 @@ public class MainServer : MonoBehaviour
                             int.TryParse(ageStr, out age) &&
                             int.TryParse(WeightStr, out Weight))
                         {
-                            logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
+                            //logging.text += $"\nUser Data - Steps: {steps}, Age: {age}, Weight: {Weight}";
                             Debug.Log($"User Data - Steps: {steps}, Age: {age}, Weight: {Weight}");
                             OnStepGoalReceived(steps);
                             getWeight(Weight);
