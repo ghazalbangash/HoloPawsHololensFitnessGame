@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
+
 public class PlayerTracker : MonoBehaviour
 {
     private int totalSteps;
@@ -13,12 +14,12 @@ public class PlayerTracker : MonoBehaviour
     public PlayerGoals playerGoals;
     public GameObject popupMessage;
     public TMP_Text popupText;
-    public float popupDuration = 3.0f;
+    public float popupDuration = 6.0f;
+    private Logger logger;
 
     void Start()
     {
-        //SetTotalStepGoal(150); // Example initial step goal
-
+        // Set the initial conditions
         totalSteps = 0;
         currentActivityLevel = ActivityLevel.BriskWalking;
         levelCompleted = false;
@@ -33,6 +34,20 @@ public class PlayerTracker : MonoBehaviour
         {
             Debug.LogError("Popup message GameObject not assigned.");
         }
+
+        // Initialize the logger
+        logger = new Logger("PlayerDataLog1.csv");
+        if (logger == null)
+        {
+            Debug.LogError("Logger failed to initialize.");
+        }
+        else
+        {
+            logger.Log("Game 1 started");
+        }
+
+        // Log the player's position every second
+        InvokeRepeating("LogPlayerPosition", 1f, 1f);
     }
 
     void Update()
@@ -51,6 +66,7 @@ public class PlayerTracker : MonoBehaviour
     public void UpdateSteps(int newSteps)
     {
         totalSteps = newSteps; // Set the total steps to the latest received value
+        logger.Log($"TotalSteps: {totalSteps}, ActivityLevel: {currentActivityLevel}, Time: {Time.time}");
 
         Debug.Log("Total steps: " + totalSteps);
 
@@ -70,6 +86,7 @@ public class PlayerTracker : MonoBehaviour
         if (stepsInCurrentLevel >= stepsRequiredForCurrentLevel)
         {
             Debug.Log($"Goal reached for {currentActivityLevel}");
+            logger.Log($"GoalReached: {currentActivityLevel} at {totalSteps} steps, Time: {Time.time}");
             levelCompleted = true;
             ShowPopupMessage();
         }
@@ -85,6 +102,7 @@ public class PlayerTracker : MonoBehaviour
             popupMessage.SetActive(true);
             popupText.text = $"Goal reached for {currentActivityLevel}!";
             Debug.Log("Popup message activated");
+            logger.Log($"PopupShown: {currentActivityLevel}, Time: {Time.time}");
         }
         else
         {
@@ -100,6 +118,7 @@ public class PlayerTracker : MonoBehaviour
         {
             popupMessage.SetActive(false);
             Debug.Log("Popup message deactivated");
+            logger.Log($"PopupHidden: {currentActivityLevel}, Time: {Time.time}");
         }
     }
 
@@ -108,6 +127,7 @@ public class PlayerTracker : MonoBehaviour
         currentActivityLevel = GetNextActivityLevel();
         levelCompleted = false;
         Debug.Log("Transitioned to next level: " + currentActivityLevel);
+        logger.Log($"LevelTransition: {currentActivityLevel}, Time: {Time.time}");
     }
 
     private ActivityLevel GetNextActivityLevel()
@@ -129,5 +149,12 @@ public class PlayerTracker : MonoBehaviour
     {
         playerGoals = new PlayerGoals(totalStepGoal);
         Debug.Log("Total step goal set: " + playerGoals.TotalStepGoal);
+        logger.Log($"TotalStepGoalSet: {totalStepGoal}, Time: {Time.time}");
+    }
+
+    private void LogPlayerPosition()
+    {
+        Vector3 position = transform.position;
+        logger.Log($"PlayerPosition: {position}, Time: {Time.time}");
     }
 }

@@ -27,7 +27,7 @@ public class CadenceDataManager : MonoBehaviour
     {
         cadenceData = newCadenceData;
         lastUpdateTime = Time.time;
-        Debug.Log("Cadence Data Updated: " + cadenceData);
+        //Debug.Log("Cadence Data Updated: " + cadenceData);
     }
 
     public int GetCadenceData()

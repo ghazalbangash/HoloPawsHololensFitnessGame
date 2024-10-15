@@ -51,6 +51,7 @@ public class MainServer : MonoBehaviour
     public void OnCadenceDataReceived(int newCadenceData)
     {
         CadenceDataManager.Instance.SetCadenceData(newCadenceData);
+        Debug.Log("Cadence Data Received: " + newCadenceData);
 
         if (caloriesManager != null)
         {
